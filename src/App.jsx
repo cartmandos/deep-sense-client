@@ -1,7 +1,8 @@
-import Analysis from 'pages/Analysis'
-import LandingPage from 'pages/LandingPage'
-import ReportForm from 'pages/ReportForm'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+
+import Analysis from './pages/Analysis'
+import LandingPage from './pages/LandingPage'
+import ReportForm from './pages/ReportForm'
 
 const router = createBrowserRouter([
   {
