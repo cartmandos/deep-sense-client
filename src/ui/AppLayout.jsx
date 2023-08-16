@@ -10,7 +10,7 @@ const AppLayout = () => {
         <p>main content</p>
         <Outlet />
       </main>
-      <footer>pfooter component</footer>
+      <footer>Footer component</footer>
     </div>
   )
 }
