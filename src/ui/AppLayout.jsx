@@ -4,13 +4,10 @@ import Header from './Header'
 
 const AppLayout = () => {
   return (
-    <div>
+    <div className="flex flex-col justify-between">
       <Header />
-      <main>
-        <p>main content</p>
-        <Outlet />
-      </main>
-      <footer>pfooter component</footer>
+      <Outlet />
+      <footer>Footer component</footer>
     </div>
   )
 }
