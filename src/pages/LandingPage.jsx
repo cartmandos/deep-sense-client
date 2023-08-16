@@ -7,10 +7,14 @@ const LandingPage = () => {
   })
 
   return (
-    <div>
-      <h1>LandingPage</h1>
-      {renderContent}
-    </div>
+    <main className="flex justify-around">
+      <div className="flex w-4/5 flex-col">
+        <h1 className="m-2  p-4 text-center text-2xl font-medium text-stone-700 ">
+          Dive Sense Annonymoss Incident Reporting and Analysis
+        </h1>
+        {renderContent}
+      </div>
+    </main>
   )
 }
 
