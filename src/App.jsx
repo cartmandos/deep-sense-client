@@ -1,9 +1,9 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import AppLayout from './ui/AppLayout'
-import Analysis from './pages/Analysis'
-import LandingPage from './pages/LandingPage'
-import ReportForm from './pages/ReportForm'
+import AppLayout from './ui/AppLayout';
+import Analysis from './pages/Analysis';
+import LandingPage from './pages/LandingPage';
+import ReportForm from './pages/report-form/ReportForm';
 
 const router = createBrowserRouter([
   {
@@ -23,10 +23,10 @@ const router = createBrowserRouter([
       },
     ],
   },
-])
+]);
 
 const App = () => {
-  return <RouterProvider router={router} />
-}
+  return <RouterProvider router={router} />;
+};
 
-export default App
+export default App;
