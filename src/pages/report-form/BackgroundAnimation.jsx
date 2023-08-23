@@ -1,5 +1,5 @@
 const BackgroundAnimation = () => {
-  return <div></div>;
+  return <div className="absolute h-full w-full "></div>;
 };
 
 export default BackgroundAnimation;

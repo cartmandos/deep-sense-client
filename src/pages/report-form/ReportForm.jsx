@@ -3,7 +3,7 @@ import ReportCard from './ReportCard';
 
 const ReportForm = () => {
   return (
-    <div className="h-full">
+    <div className="flex h-full w-full items-center justify-center">
       <BackgroundAnimation />
       <ReportCard />
     </div>
