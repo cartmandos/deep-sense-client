@@ -1,15 +1,15 @@
-import { Outlet } from 'react-router-dom'
+import { Outlet } from 'react-router-dom';
 
-import Header from './Header'
+import Header from './Header';
 
 const AppLayout = () => {
   return (
-    <div className="flex flex-col justify-between">
+    <div className="flex h-full flex-col justify-between">
       <Header />
       <Outlet />
       <footer>Footer component</footer>
     </div>
-  )
-}
+  );
+};
 
-export default AppLayout
+export default AppLayout;
