@@ -25,15 +25,15 @@ const ReportCard = ({ step, setStep }) => {
   }, [step]);
 
   const handleNextSubmitClick = () => {
-    if (btnType === 'submit') return handleSubmit();
-    console.log(step);
-    setStep((prevStep) => prevStep + 1);
+    btnType === 'submit' ? handleSubmit() : setStep((prevStep) => prevStep + 1);
   };
   const handlePrevClick = () => setStep((prevStep) => prevStep - 1);
-  const handleSubmit = () => {};
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  };
 
   return (
-    <div className="z-10 h-4/5 w-3/5 rounded bg-slate-100 shadow-xl">
+    <div className="z-10 grid h-4/5 w-3/5 grid-rows-[auto_1fr_auto] rounded bg-slate-200 shadow-xl">
       <Box sx={{ width: '100%', pt: 3 }}>
         <Stepper activeStep={step} alternativeLabel>
           {formSteps.map((label) => (
@@ -43,6 +43,50 @@ const ReportCard = ({ step, setStep }) => {
           ))}
         </Stepper>
       </Box>
+      <main className="mx-auto my-2 max-w-2xl overflow-scroll bg-slate-50 p-2">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam sed quam facere. Magni
+          optio soluta deserunt corporis, dignissimos velit. Ipsum maxime suscipit adipisci tempore
+          iste totam id cupiditate non consectetur mollitia dignissimos excepturi sit minus quod
+          illum odio, aperiam quaerat, laboriosam cum. Illum dolor dolore distinctio repellendus
+          quia omnis quasi.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam sed quam facere. Magni
+          optio soluta deserunt corporis, dignissimos velit. Ipsum maxime suscipit adipisci tempore
+          iste totam id cupiditate non consectetur mollitia dignissimos excepturi sit minus quod
+          illum odio, aperiam quaerat, laboriosam cum. Illum dolor dolore distinctio repellendus
+          quia omnis quasi.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam sed quam facere. Magni
+          optio soluta deserunt corporis, dignissimos velit. Ipsum maxime suscipit adipisci tempore
+          iste totam id cupiditate non consectetur mollitia dignissimos excepturi sit minus quod
+          illum odio, aperiam quaerat, laboriosam cum. Illum dolor dolore distinctio repellendus
+          quia omnis quasi.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam sed quam facere. Magni
+          optio soluta deserunt corporis, dignissimos velit. Ipsum maxime suscipit adipisci tempore
+          iste totam id cupiditate non consectetur mollitia dignissimos excepturi sit minus quod
+          illum odio, aperiam quaerat, laboriosam cum. Illum dolor dolore distinctio repellendus
+          quia omnis quasi.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam sed quam facere. Magni
+          optio soluta deserunt corporis, dignissimos velit. Ipsum maxime suscipit adipisci tempore
+          iste totam id cupiditate non consectetur mollitia dignissimos excepturi sit minus quod
+          illum odio, aperiam quaerat, laboriosam cum. Illum dolor dolore distinctio repellendus
+          quia omnis quasi.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam sed quam facere. Magni
+          optio soluta deserunt corporis, dignissimos velit. Ipsum maxime suscipit adipisci tempore
+          iste totam id cupiditate non consectetur mollitia dignissimos excepturi sit minus quod
+          illum odio, aperiam quaerat, laboriosam cum. Illum dolor dolore distinctio repellendus
+          quia omnis quasi.
+        </p>
+      </main>
       <ButtonGroup variant="outlined" aria-label="outlined button group">
         {step !== 0 && <Button onClick={handlePrevClick}>Previous</Button>}
         <Button onClick={handleNextSubmitClick} type={btnType}>
