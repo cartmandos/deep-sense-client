@@ -2,7 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 
 import AppLayout from '@ui/layouts/AppLayout';
 import { LandingPage } from '@pages/LandingPage';
-import ReportForm from '@pages/ReportForm';
+import ReportForm from '@pages/report-form/ReportForm';
 import Analysis from '@pages/Analysis';
 
 import { ROOT, REPORT, ANALYSIS } from './paths';
