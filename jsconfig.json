@@ -1,8 +1,5 @@
 {
-  "compilerOptions": { "baseUrl": "." },
+  "compilerOptions": { "baseUrl": "src" },
   "include": ["src"],
-  "exclude": ["node_modules", ".github", ".vscode", ".husky"],
-  "paths": {
-    "@/*": ["src/*"]
-  }
+  "exclude": ["node_modules", ".github", ".vscode"]
 }
