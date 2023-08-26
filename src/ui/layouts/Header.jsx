@@ -20,16 +20,16 @@ const Header = () => {
       <nav>
         <div className="text-md me-6 flex h-min space-x-2 font-medium text-[#be3144]">
           <Link
-            className="me-4 flex items-center space-x-2 border-2 border-transparent border-b-[#e6e6e6] px-2 uppercase hover:border-2 hover:border-gray-300  hover:text-red-600"
+            className="me-4 flex items-center space-x-2 border-2 border-transparent border-b-[#dc7986] px-3 uppercase hover:border-2 hover:border-[#dc7986]  hover:text-red-600"
             to={REPORT}
           >
             <span>report</span>
           </Link>
           <Link
-            className="items-center space-x-2 border-2 border-transparent border-b-[#e6e6e6] px-2 uppercase hover:border-2 hover:border-gray-300 hover:text-red-600"
+            className="items-center space-x-2 border-2 border-transparent border-b-[#dc7986] px-3 uppercase hover:border-2 hover:border-[#dc7986] hover:text-red-600"
             to={ANALYSIS}
           >
-            <span>analysis</span>
+            <span>get in the know</span>
           </Link>
         </div>
       </nav>
