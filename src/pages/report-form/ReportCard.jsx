@@ -87,11 +87,7 @@ const ReportCard = ({ step, setStep }) => {
           quia omnis quasi.
         </p>
       </main>
-      <ButtonGroup
-        variant="outlined"
-        aria-label="outlined button group"
-        className="mx-auto mb-4 mt-2"
-      >
+      <ButtonGroup variant="outlined" aria-label="outlined button group">
         {step !== 0 && <Button onClick={handlePrevClick}>Previous</Button>}
         <Button onClick={handleNextSubmitClick} type={btnType}>
           {step === formSteps.length - 1 ? 'Submit' : 'Next'}
