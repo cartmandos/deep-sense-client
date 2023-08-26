@@ -24,7 +24,7 @@ const CTAHeroButton = () => {
     <Link
       to={REPORT}
       type="button"
-      className="hero-cta rounded-lg border-2 border-[#d25062] bg-[#d25062] bg-opacity-30 p-3 text-lg font-medium uppercase leading-normal text-neutral-300 transition duration-150 ease-in-out hover:border-[#952735] hover:bg-[#952735] hover:bg-opacity-60 hover:text-neutral-200  focus:border-neutral-50 focus:text-neutral-100 focus:outline-none focus:ring-0 active:border-neutral-200 active:text-neutral-200"
+      className="hero-cta rounded-lg border-2 border-main-red-light bg-main-red-light bg-opacity-30 p-3 text-lg font-medium uppercase leading-normal text-neutral-300 transition duration-150 ease-in-out hover:border-main-red-dark hover:bg-main-red-dark hover:bg-opacity-60 hover:text-neutral-200  focus:border-neutral-50 focus:text-neutral-100 focus:outline-none focus:ring-0 active:border-neutral-200 active:text-neutral-200"
       data-te-ripple-init
       data-te-ripple-color="light"
     >

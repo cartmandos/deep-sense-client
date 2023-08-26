@@ -3,7 +3,7 @@ import { EyeSlashIcon, UserGroupIcon, MagnifyingGlassIcon } from '@lib/svg/icons
 export default function HighlightsSection() {
   return (
     <section className="feature-highlights">
-      <div className="mx-auto bg-[#d25062] px-8">
+      <div className="mx-auto bg-main-red-light px-8">
         <div className="-mx-4 flex flex-wrap">
           <div className="mb-4 w-full px-24 py-2 lg:w-1/3">
             <div className="flex items-center">
@@ -19,7 +19,7 @@ export default function HighlightsSection() {
             </p>
           </div>
 
-          <div className="w-full bg-[#be3144] px-24 py-2 lg:w-1/3">
+          <div className="w-full bg-secondary-red-dark px-24 py-2 lg:w-1/3">
             <div className="flex items-center">
               <div className="flex h-16 w-16 items-center justify-center rounded-full text-white">
                 <UserGroupIcon />

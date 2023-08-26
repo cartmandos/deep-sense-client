@@ -9,13 +9,13 @@ export default function FeatureContentSection({
   imageAlignment,
 }) {
   return (
-    <section className="feature-content bg-[#e6e6e6]">
+    <section className="feature-content bg-main-gray-light">
       <div className="container mx-auto py-16">
         <div className="flex flex-wrap">
           {imageAlignment === 'left' && (
             <div className="w-full lg:w-1/2">
               <div className="p-24">
-                <h2 className="mb-4 text-4xl font-bold leading-10 tracking-tight text-[#3b0f15]">
+                <h2 className="mb-4 text-4xl font-bold leading-10 tracking-tight text-primary-text">
                   {title}
                 </h2>
                 <div className="leading-loose text-red-950">{content}</div>
@@ -34,7 +34,7 @@ export default function FeatureContentSection({
           {imageAlignment === 'right' && (
             <div className="w-full lg:w-1/2">
               <div className="p-24">
-                <h2 className="mb-4 text-4xl font-bold leading-10 tracking-tight text-[#3b0f15]">
+                <h2 className="mb-4 text-4xl font-bold leading-10 tracking-tight text-primary-text">
                   {title}
                 </h2>
                 <div className="leading-loose text-red-950">{content}</div>

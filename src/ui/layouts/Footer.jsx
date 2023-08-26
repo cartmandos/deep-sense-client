@@ -5,7 +5,7 @@ import Logo from '@ui/Logo';
 
 const Footer = () => {
   return (
-    <footer className="bg-[#212121] py-3">
+    <footer className="bg-main-gray-dark py-3">
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div className="justify-center sm:flex sm:items-end">
           <Link className="flex justify-center sm:justify-start" to={ROOT}>
