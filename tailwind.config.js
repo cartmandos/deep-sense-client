@@ -11,7 +11,7 @@ export default {
         'main-gray-light': '#e6e6e6',
         'main-gray-dark': '#212121',
         'primary-text': '#3b0f15',
-        'secondary-text': '#4a131aa',
+        'secondary-text': '#4a131a',
       },
     },
   },

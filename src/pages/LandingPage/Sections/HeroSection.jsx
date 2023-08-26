@@ -6,13 +6,15 @@ export default function HeroSection() {
   return (
     <section className="hero flex h-full items-center">
       <div className="ms-12 mt-16 text-white">
-        <h2 className="mb-2 text-5xl font-medium tracking-tight">You&apos;re not alone</h2>
-        <h3 className="mb-6 text-4xl font-thin">
+        <h2 className="mb-2 text-3xl font-medium tracking-tight sm:text-5xl">
+          You&apos;re not alone
+        </h2>
+        <h3 className="mb-6 text-2xl font-thin sm:text-4xl">
           Mistakes are inevitable,
           <br />
           repeating them is avoidable.
         </h3>
-        <h4 className="mb-6 text-xl font-semibold">Join our buddy of knowledge</h4>
+        <h4 className="mb-6 text-sm font-semibold sm:text-xl">Join our buddy of knowledge</h4>
         <CTAHeroButton />
       </div>
     </section>

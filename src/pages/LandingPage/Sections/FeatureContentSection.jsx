@@ -24,7 +24,7 @@ export default function FeatureContentSection({
           )}
 
           <div
-            className={`flex place-content-center items-center lg:w-1/2 ${
+            className={`flex flex-auto place-content-center items-center p-4 lg:w-1/2 ${
               imageAlignment === 'left' ? 'lg:w-1/2' : 'lg:w-1/2'
             }`}
           >
