@@ -1,14 +1,15 @@
 import {
-  CTASection,
-  FeatureContentLeftSection,
-  FeatureContentRightSection,
-  FeatureInsightsSection,
   HeroSection,
   HighlightsSection,
+  FeatureContentLeftSection,
+  FeatureFocusSection,
+  FeatureContentRightSection,
+  CTASection,
 } from './Sections';
 
 import heroBgImg from '@assets/images/hero-background_03.jpg';
 
+//TODO: 1. lazy loading w/ suspense
 const LandingPage = () => {
   const withBackground = (Component) => {
     return (
@@ -30,7 +31,7 @@ const LandingPage = () => {
 
       <HighlightsSection />
       <FeatureContentLeftSection />
-      <FeatureInsightsSection />
+      <FeatureFocusSection />
       <FeatureContentRightSection />
       <CTASection />
     </>
