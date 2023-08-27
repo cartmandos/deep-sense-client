@@ -4,10 +4,10 @@ import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import { useEffect, useState } from 'react';
-import GeneralInstructions from './GeneralInstructions';
-import GeneralInfo from './GeneralInfo';
-import IncidentCategory from './IncidentCategory';
-import IncidentInfo from './IncidentInfo';
+import GeneralInstructions from './Steps/GeneralInstructions';
+import GeneralInfo from './Steps/DiverGeneralInfo';
+import IncidentCategory from './Steps/IncidentCategory';
+import IncidentInfo from './Steps/IncidentInfo';
 
 const formSteps = [
   { label: 'infoText', btnText: 'Start Reporting' },
@@ -48,7 +48,7 @@ const ReportCard = ({ step, setStep }) => {
   };
 
   return (
-    <div className="z-10 grid h-4/5 w-3/5 grid-rows-[auto_1fr_auto] rounded bg-slate-200 shadow-xl">
+    <div className="bg-main-gray-light z-10 grid h-4/5 w-3/5 grid-rows-[auto_1fr_auto] rounded shadow-xl">
       <Box sx={{ width: '100%', pt: 3 }}>
         <Stepper activeStep={step} alternativeLabel>
           {formSteps.map((label) => (
@@ -71,7 +71,9 @@ const ReportCard = ({ step, setStep }) => {
           ))}
         </Stepper>
       </Box>
-      <main className="mx-auto my-2 h-[60vh] max-w-2xl bg-slate-50 p-2">{stepRenderers()}</main>
+      <main className="mx-auto my-2 h-[60vh] max-w-2xl overflow-auto bg-slate-50 p-2">
+        {stepRenderers()}
+      </main>
       <ButtonGroup className="mb-3 flex justify-center">
         {step !== 0 && (
           <button
