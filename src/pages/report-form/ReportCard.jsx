@@ -3,7 +3,6 @@ import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import ButtonGroup from '@mui/material/ButtonGroup';
-import Button from '@mui/material/Button';
 import { useEffect, useState } from 'react';
 
 const formSteps = [
@@ -15,7 +14,6 @@ const formSteps = [
   { label: 'summary' },
 ];
 
-// eslint-disable-next-line react/prop-types
 const ReportCard = ({ step, setStep }) => {
   const [btnType, setBtnType] = useState('button');
 
@@ -38,7 +36,19 @@ const ReportCard = ({ step, setStep }) => {
         <Stepper activeStep={step} alternativeLabel>
           {formSteps.map((label) => (
             <Step key={label.label}>
-              <StepLabel>{label.label}</StepLabel>
+              <StepLabel
+                //fix with- https://mui.com/material-ui/customization/how-to-customize/#2-reusable-component
+                sx={{
+                  '& .MuiSvgIcon-root.Mui-completed': {
+                    color: '#952735', // main-red-dark
+                  },
+                  '& .MuiStepIcon-root.Mui-active': {
+                    color: '#be3144', // secondary-red-dark
+                  },
+                }}
+              >
+                {label.label}
+              </StepLabel>
             </Step>
           ))}
         </Stepper>
@@ -87,11 +97,22 @@ const ReportCard = ({ step, setStep }) => {
           quia omnis quasi.
         </p>
       </main>
-      <ButtonGroup variant="outlined" aria-label="outlined button group">
-        {step !== 0 && <Button onClick={handlePrevClick}>Previous</Button>}
-        <Button onClick={handleNextSubmitClick} type={btnType}>
+      <ButtonGroup className="mb-3 flex justify-center">
+        {step !== 0 && (
+          <button
+            className="border-b-secondary-red-light hover:border-secondary-red-light me-2 items-center space-x-2 border-2 border-transparent px-3 uppercase hover:border-2 hover:text-red-600"
+            onClick={handlePrevClick}
+          >
+            Previous
+          </button>
+        )}
+        <button
+          className="border-b-secondary-red-light hover:border-secondary-red-light items-center space-x-2 border-2 border-transparent px-3 uppercase hover:border-2 hover:text-red-600"
+          onClick={handleNextSubmitClick}
+          type={btnType}
+        >
           {step === formSteps.length - 1 ? 'Submit' : 'Next'}
-        </Button>
+        </button>
       </ButtonGroup>
     </div>
   );
