@@ -4,6 +4,10 @@ import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import { useEffect, useState } from 'react';
+import GeneralInstructions from './GeneralInstructions';
+import GeneralInfo from './GeneralInfo';
+import IncidentCategory from './IncidentCategory';
+import IncidentInfo from './IncidentInfo';
 
 const formSteps = [
   { label: 'infoText', btnText: 'Start Reporting' },
@@ -30,6 +34,19 @@ const ReportCard = ({ step, setStep }) => {
     event.preventDefault();
   };
 
+  const stepRenderers = () => {
+    switch (step) {
+      case 0:
+        return <GeneralInstructions />;
+      case 1:
+        return <GeneralInfo />;
+      case 2:
+        return <IncidentCategory />;
+      case 3:
+        return <IncidentInfo />;
+    }
+  };
+
   return (
     <div className="z-10 grid h-4/5 w-3/5 grid-rows-[auto_1fr_auto] rounded bg-slate-200 shadow-xl">
       <Box sx={{ width: '100%', pt: 3 }}>
@@ -37,6 +54,7 @@ const ReportCard = ({ step, setStep }) => {
           {formSteps.map((label) => (
             <Step key={label.label}>
               <StepLabel
+                className="uppercase"
                 //fix with- https://mui.com/material-ui/customization/how-to-customize/#2-reusable-component
                 sx={{
                   '& .MuiSvgIcon-root.Mui-completed': {
@@ -53,50 +71,7 @@ const ReportCard = ({ step, setStep }) => {
           ))}
         </Stepper>
       </Box>
-      <main className="mx-auto my-2 max-w-2xl overflow-scroll bg-slate-50 p-2">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam sed quam facere. Magni
-          optio soluta deserunt corporis, dignissimos velit. Ipsum maxime suscipit adipisci tempore
-          iste totam id cupiditate non consectetur mollitia dignissimos excepturi sit minus quod
-          illum odio, aperiam quaerat, laboriosam cum. Illum dolor dolore distinctio repellendus
-          quia omnis quasi.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam sed quam facere. Magni
-          optio soluta deserunt corporis, dignissimos velit. Ipsum maxime suscipit adipisci tempore
-          iste totam id cupiditate non consectetur mollitia dignissimos excepturi sit minus quod
-          illum odio, aperiam quaerat, laboriosam cum. Illum dolor dolore distinctio repellendus
-          quia omnis quasi.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam sed quam facere. Magni
-          optio soluta deserunt corporis, dignissimos velit. Ipsum maxime suscipit adipisci tempore
-          iste totam id cupiditate non consectetur mollitia dignissimos excepturi sit minus quod
-          illum odio, aperiam quaerat, laboriosam cum. Illum dolor dolore distinctio repellendus
-          quia omnis quasi.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam sed quam facere. Magni
-          optio soluta deserunt corporis, dignissimos velit. Ipsum maxime suscipit adipisci tempore
-          iste totam id cupiditate non consectetur mollitia dignissimos excepturi sit minus quod
-          illum odio, aperiam quaerat, laboriosam cum. Illum dolor dolore distinctio repellendus
-          quia omnis quasi.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam sed quam facere. Magni
-          optio soluta deserunt corporis, dignissimos velit. Ipsum maxime suscipit adipisci tempore
-          iste totam id cupiditate non consectetur mollitia dignissimos excepturi sit minus quod
-          illum odio, aperiam quaerat, laboriosam cum. Illum dolor dolore distinctio repellendus
-          quia omnis quasi.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam sed quam facere. Magni
-          optio soluta deserunt corporis, dignissimos velit. Ipsum maxime suscipit adipisci tempore
-          iste totam id cupiditate non consectetur mollitia dignissimos excepturi sit minus quod
-          illum odio, aperiam quaerat, laboriosam cum. Illum dolor dolore distinctio repellendus
-          quia omnis quasi.
-        </p>
-      </main>
+      <main className="mx-auto my-2 h-[60vh] max-w-2xl bg-slate-50 p-2">{stepRenderers()}</main>
       <ButtonGroup className="mb-3 flex justify-center">
         {step !== 0 && (
           <button
