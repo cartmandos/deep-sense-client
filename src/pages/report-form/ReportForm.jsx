@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import BackgroundAnimation from './BackgroundAnimation';
+
 import ReportCard from './ReportCard';
 
 const ReportForm = () => {
@@ -7,7 +7,6 @@ const ReportForm = () => {
 
   return (
     <div className="flex h-full w-full items-center justify-center">
-      <BackgroundAnimation />
       <ReportCard step={step} setStep={setStep} />
     </div>
   );
