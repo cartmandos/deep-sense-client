@@ -50,7 +50,7 @@ const ReportCard = ({ step, setStep }) => {
   };
 
   return (
-    <div className="bg-main-gray-light z-10 grid h-4/5 w-3/5 grid-rows-[auto_1fr_auto] rounded shadow-xl">
+    <div className="z-10 grid h-4/5 w-3/5 grid-rows-[auto_1fr_auto] rounded bg-main-gray-light shadow-xl">
       <Box sx={{ width: '100%', pt: 3 }}>
         <Stepper activeStep={step} alternativeLabel>
           {formSteps.map((label) => (
@@ -73,20 +73,20 @@ const ReportCard = ({ step, setStep }) => {
           ))}
         </Stepper>
       </Box>
-      <main className="mx-auto my-2 h-[60vh] max-w-2xl overflow-auto bg-slate-50 p-2">
+      <div className="mx-auto my-2 h-[60vh] max-w-2xl overflow-auto bg-slate-50 p-2">
         {stepRenderers()}
-      </main>
+      </div>
       <ButtonGroup className="mb-3 flex justify-center">
         {step !== 0 && (
           <button
-            className="border-b-secondary-red-light hover:border-secondary-red-light me-2 items-center space-x-2 border-2 border-transparent px-3 uppercase hover:border-2 hover:text-red-600"
+            className="me-2 items-center space-x-2 border-2 border-transparent border-b-secondary-red-light px-3 uppercase hover:border-2 hover:border-secondary-red-light hover:text-red-600"
             onClick={handlePrevClick}
           >
             Previous
           </button>
         )}
         <button
-          className="border-b-secondary-red-light hover:border-secondary-red-light items-center space-x-2 border-2 border-transparent px-3 uppercase hover:border-2 hover:text-red-600"
+          className="items-center space-x-2 border-2 border-transparent border-b-secondary-red-light px-3 uppercase hover:border-2 hover:border-secondary-red-light hover:text-red-600"
           onClick={handleNextSubmitClick}
           type={btnType}
         >

@@ -4,8 +4,8 @@ import './backgroundAnimation.css';
 
 const BackgroundAnimation = () => {
   return (
-    <div className="oxy-lg absolute  h-full w-full overflow-hidden">
-      <div className="oxy-sm relative  flex justify-around">
+    <div className="oxy-lg absolute h-full w-full overflow-hidden">
+      <div className="oxy-sm relative flex justify-around">
         <OxygenSVG initSize={13} />
         <OxygenSVG initSize={9} />
         <OxygenSVG initSize={12} />
