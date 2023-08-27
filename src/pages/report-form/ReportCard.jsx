@@ -11,6 +11,7 @@ import GeneralInfo from './Steps/DiverGeneralInfo';
 import IncidentCategory from './Steps/IncidentCategory';
 import IncidentInfo from './Steps/IncidentInfo';
 import BackgroundAnimation from './BackgroundAnimation';
+import IncidentGeneralInfo from './Steps/IncidentGeneralInfo';
 
 const formSteps = [
   { label: 'infoText', btnText: 'Start Reporting' },
@@ -36,7 +37,7 @@ const ReportCard = ({ step, setStep }) => {
     setTimeout(() => {
       btnType === 'submit' ? handleSubmit() : setStep((prevStep) => prevStep + 1);
       setShowAnimation(false);
-    }, 2000);
+    }, 0);
   };
   const handlePrevClick = () => setStep((prevStep) => prevStep - 1);
 
@@ -54,11 +55,13 @@ const ReportCard = ({ step, setStep }) => {
         return <IncidentCategory />;
       case 3:
         return <IncidentInfo />;
+      case 4:
+        return <IncidentGeneralInfo />;
     }
   };
 
   return (
-    <div className="z-10 grid h-4/5 w-3/5 grid-rows-[auto_1fr_auto] rounded bg-main-gray-light shadow-xl">
+    <div className="bg-main-gray-light z-10 grid h-4/5 w-3/5 grid-rows-[auto_1fr_auto] rounded shadow-xl">
       {showAnimation ? (
         <div>
           <BackgroundAnimation />
@@ -93,14 +96,14 @@ const ReportCard = ({ step, setStep }) => {
           <ButtonGroup className="mb-3 flex justify-center">
             {step !== 0 && (
               <button
-                className="me-2 items-center space-x-2 border-2 border-transparent border-b-secondary-red-light px-3 uppercase hover:border-2 hover:border-secondary-red-light hover:text-red-600"
+                className="border-b-secondary-red-light hover:border-secondary-red-light me-2 items-center space-x-2 border-2 border-transparent px-3 uppercase hover:border-2 hover:text-red-600"
                 onClick={handlePrevClick}
               >
                 Previous
               </button>
             )}
             <button
-              className="items-center space-x-2 border-2 border-transparent border-b-secondary-red-light px-3 uppercase hover:border-2 hover:border-secondary-red-light hover:text-red-600"
+              className="border-b-secondary-red-light hover:border-secondary-red-light items-center space-x-2 border-2 border-transparent px-3 uppercase hover:border-2 hover:text-red-600"
               onClick={handleNextSubmitClick}
               type={btnType}
             >

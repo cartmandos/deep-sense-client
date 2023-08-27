@@ -3,7 +3,6 @@ import OxygenSVG from './OxygenSVG';
 import './backgroundAnimation.css';
 
 const BackgroundAnimation = () => {
-  console.log('BackgroundAnimation');
   return (
     <div className="oxy-lg absolute h-full w-full overflow-hidden">
       <div className="oxy-sm relative flex justify-around">
