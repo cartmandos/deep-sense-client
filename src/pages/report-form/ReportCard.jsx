@@ -1,9 +1,11 @@
+import { useEffect, useState } from 'react';
+
 import Box from '@mui/material/Box';
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import ButtonGroup from '@mui/material/ButtonGroup';
-import { useEffect, useState } from 'react';
+
 import GeneralInstructions from './Steps/GeneralInstructions';
 import GeneralInfo from './Steps/DiverGeneralInfo';
 import IncidentCategory from './Steps/IncidentCategory';
