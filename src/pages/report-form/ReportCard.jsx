@@ -1,11 +1,7 @@
 // import { useEffect, useState } from 'react';
 
-import GeneralInstructions from './Steps/GeneralInstructions';
-import GeneralInfo from './Steps/DiverGeneralInfo';
-import IncidentCategory from './Steps/IncidentCategory';
-import IncidentInfo from './Steps/IncidentInfo';
+import { GeneralInstructions, GeneralInfo, IncidentInfo, IncidentGeneralInfo } from './Steps';
 import BackgroundAnimation from './BackgroundAnimation';
-import IncidentGeneralInfo from './Steps/IncidentGeneralInfo';
 
 const formSteps = [
   { label: 'Welcome' },
@@ -13,7 +9,7 @@ const formSteps = [
   { label: 'Incident Details' },
   { label: 'More Details' },
   { label: 'Appendix' },
-  { label: 'Report' },
+  { label: 'Summary' },
 ];
 
 const ReportCard = ({ step, setStep }) => {
@@ -35,10 +31,8 @@ const ReportCard = ({ step, setStep }) => {
       case 1:
         return <GeneralInfo />;
       case 2:
-        return <IncidentCategory />;
-      case 3:
         return <IncidentInfo />;
-      case 4:
+      case 3:
         return <IncidentGeneralInfo />;
       default:
         return <></>;
