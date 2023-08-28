@@ -5,6 +5,7 @@ import GeneralInfo from './Steps/DiverGeneralInfo';
 import IncidentCategory from './Steps/IncidentCategory';
 import IncidentInfo from './Steps/IncidentInfo';
 import BackgroundAnimation from './BackgroundAnimation';
+import IncidentGeneralInfo from './Steps/IncidentGeneralInfo';
 
 const formSteps = [
   { label: 'Welcome' },
@@ -37,6 +38,8 @@ const ReportCard = ({ step, setStep }) => {
         return <IncidentCategory />;
       case 3:
         return <IncidentInfo />;
+      case 4:
+        return <IncidentGeneralInfo />;
       default:
         return <></>;
     }
