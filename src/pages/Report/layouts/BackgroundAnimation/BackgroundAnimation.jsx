@@ -1,4 +1,4 @@
-import OxygenSVG from './OxygenSVG';
+import OxygenSVG from '../../../../lib/svg/OxygenSVG';
 
 import './backgroundAnimation.css';
 

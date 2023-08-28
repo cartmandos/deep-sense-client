@@ -1,7 +1,7 @@
 // import { useEffect, useState } from 'react';
 
 import { GeneralInstructions, GeneralInfo, IncidentGeneralInfo } from './Steps';
-import BackgroundAnimation from './BackgroundAnimation';
+import { BackgroundAnimation } from './layouts';
 
 const formSteps = [
   { label: 'Welcome' },
