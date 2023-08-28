@@ -1,10 +1,4 @@
-import { useEffect, useState } from 'react';
-
-import Box from '@mui/material/Box';
-import Stepper from '@mui/material/Stepper';
-import Step from '@mui/material/Step';
-import StepLabel from '@mui/material/StepLabel';
-import ButtonGroup from '@mui/material/ButtonGroup';
+// import { useEffect, useState } from 'react';
 
 import GeneralInstructions from './Steps/GeneralInstructions';
 import GeneralInfo from './Steps/DiverGeneralInfo';
@@ -13,35 +7,24 @@ import IncidentInfo from './Steps/IncidentInfo';
 import BackgroundAnimation from './BackgroundAnimation';
 
 const formSteps = [
-  { label: 'infoText', btnText: 'Start Reporting' },
-  { label: 'initData' },
-  { label: 'data1' },
-  { label: 'data2' },
-  { label: 'data3' },
-  { label: 'summary' },
+  { label: 'Welcome' },
+  { label: 'Basic Info' },
+  { label: 'Incident Details' },
+  { label: 'More Details' },
+  { label: 'Appendix' },
+  { label: 'Report' },
 ];
 
 const ReportCard = ({ step, setStep }) => {
-  const [btnType, setBtnType] = useState('button');
-  const [showAnimation, setShowAnimation] = useState(false);
+  // const [showAnimation, setShowAnimation] = useState(false);
 
-  // fix to conditional
-  useEffect(() => {
-    if (step === formSteps.length - 1) setBtnType('submit');
-    if (step < formSteps.length - 1) setBtnType('button');
-  }, [step]);
+  const handleNext = () => setStep((prevStep) => prevStep + 1);
 
-  const handleNextSubmitClick = () => {
-    setShowAnimation(true);
-    setTimeout(() => {
-      btnType === 'submit' ? handleSubmit() : setStep((prevStep) => prevStep + 1);
-      setShowAnimation(false);
-    }, 2000);
-  };
-  const handlePrevClick = () => setStep((prevStep) => prevStep - 1);
+  const handlePrevious = () => setStep((prevStep) => prevStep - 1);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('submit');
   };
 
   const stepRenderers = () => {
@@ -54,63 +37,63 @@ const ReportCard = ({ step, setStep }) => {
         return <IncidentCategory />;
       case 3:
         return <IncidentInfo />;
+      default:
+        return <></>;
     }
   };
 
   return (
-    <div className="z-10 grid h-4/5 w-3/5 grid-rows-[auto_1fr_auto] rounded bg-main-gray-light shadow-xl">
-      {showAnimation ? (
-        <div>
-          <BackgroundAnimation />
+    <div className="flex h-full ">
+      <div className="mx-4 h-full w-2/3 rounded bg-main-gray-light shadow-xl">
+        <div className="form-card mx-auto my-2 bg-slate-50 p-2">{stepRenderers()}</div>
+
+        <div role="group" className="mb-3 flex justify-center">
+          {step > 0 && <FormButton label="Previous" onClick={handlePrevious} />}
+
+          {step < formSteps.length - 1 ? (
+            <FormButton label="Next" onClick={handleNext} />
+          ) : (
+            <FormButton label="Submit" onClick={handleSubmit} type="submit" />
+          )}
         </div>
-      ) : (
-        <div>
-          <Box sx={{ width: '100%', pt: 3 }}>
-            <Stepper activeStep={step} alternativeLabel>
-              {formSteps.map((label) => (
-                <Step key={label.label}>
-                  <StepLabel
-                    className="uppercase"
-                    //fix with- https://mui.com/material-ui/customization/how-to-customize/#2-reusable-component
-                    sx={{
-                      '& .MuiSvgIcon-root.Mui-completed': {
-                        color: '#952735', // main-red-dark
-                      },
-                      '& .MuiStepIcon-root.Mui-active': {
-                        color: '#be3144', // secondary-red-dark
-                      },
-                    }}
-                  >
-                    {label.label}
-                  </StepLabel>
-                </Step>
-              ))}
-            </Stepper>
-          </Box>
-          <div className="form-card mx-auto my-2 h-[60vh] max-w-2xl overflow-auto bg-slate-50 p-2">
-            {stepRenderers()}
-          </div>
-          <ButtonGroup className="mb-3 flex justify-center">
-            {step !== 0 && (
-              <button
-                className="me-2 items-center space-x-2 border-2 border-transparent border-b-secondary-red-light px-3 uppercase hover:border-2 hover:border-secondary-red-light hover:text-red-600"
-                onClick={handlePrevClick}
-              >
-                Previous
-              </button>
-            )}
-            <button
-              className="items-center space-x-2 border-2 border-transparent border-b-secondary-red-light px-3 uppercase hover:border-2 hover:border-secondary-red-light hover:text-red-600"
-              onClick={handleNextSubmitClick}
-              type={btnType}
-            >
-              {step === formSteps.length - 1 ? 'Submit' : 'Next'}
-            </button>
-          </ButtonGroup>
-        </div>
-      )}
+      </div>
+
+      <div className="relative me-4 ms-auto pe-4 ps-8">
+        <BackgroundAnimation />
+        <ProgressBar step={step} />
+      </div>
     </div>
   );
 };
 
 export default ReportCard;
+
+const ProgressBar = ({ step }) => {
+  return (
+    <ul className="steps steps-vertical">
+      {formSteps.map(({ label }, index) => (
+        <li
+          className={`step ${
+            index < step ? 'step-success' : index === step ? 'step-primary' : 'step-neutral'
+          }`}
+          key={label}
+          data-content={`${index < step ? '✓' : index + 1}`}
+        >
+          {label}
+        </li>
+      ))}
+    </ul>
+  );
+};
+
+const FormButton = ({ label, onClick, type = 'button' }) => {
+  return (
+    <button
+      className="items-center space-x-2 border-2 border-transparent border-b-secondary-red-light px-3 uppercase hover:border-2 hover:border-secondary-red-light hover:text-red-600"
+      onClick={onClick}
+      type={type}
+    >
+      {label}
+    </button>
+  );
+};
