@@ -1,40 +1,82 @@
-import RenderIncidentType from './RenderIncidentType';
+import { INCIDENT_TYPE } from '../../../lib/data/checkboxData';
 
 const IncidentGeneralInfo = () => {
   return (
     <div>
-      {/* location */}
-      <span className="label  uppercase">Incident Location</span>
+      {/* location - country */}
+      <span className="label  uppercase">Incident Location - country</span>
       <input
         type="text"
         placeholder="Type here"
         className="input input-bordered input-secondary mb-2 w-full max-w-xs"
       />
-      {/* date date picker*/}
+      {/* location - dive site */}
+      <span className="label  uppercase">Incident Location - dive site</span>
+      <input
+        type="text"
+        placeholder="Type here"
+        className="input input-bordered input-secondary mb-2 w-full max-w-xs"
+      />
+      {/* date */}
       <span className="label uppercase">Incident Date</span>
       <input type="date" className="input input-bordered input-secondary mb-2 w-full max-w-xs" />
-      {/* type -checkbox */}
+      {/* type - checkbox */}
       <div className="form-control">
-        <RenderIncidentType />
+        {INCIDENT_TYPE.map((type) => {
+          return (
+            <div key={type}>
+              <div className="flex">
+                <label className="label cursor-pointer">
+                  <input type="checkbox" className="checkbox border-main-red-dark checkbox-error" />
+                  <span className="label-text ms-2">{type}</span>
+                </label>
+              </div>
+            </div>
+          );
+        })}
       </div>
-      {/* involvment - radio */}
+      {/* involvment */}
       <span className="label-text uppercase">Incident Inolvment</span>
       <div className="flex">
-        <div className="form-control">
+        <div className="form-control flex-row">
           <label className="label cursor-pointer">
             <input
+              value={true}
               type="radio"
-              name="radio-10"
+              name="involvment"
               className="radio radio-error border-main-red-dark me-2"
             />
             <span className="label-text">Yes</span>
           </label>
-        </div>
-        <div className="form-control">
           <label className="label cursor-pointer">
             <input
+              value={false}
               type="radio"
-              name="radio-10"
+              name="involvment"
+              className="radio radio-error border-main-red-dark me-2"
+            />
+            <span className="label-text">No</span>
+          </label>
+        </div>
+      </div>
+      {/* victim */}
+      <span className="label-text uppercase">Victim</span>
+      <div className="flex">
+        <div className="form-control flex-row">
+          <label className="label cursor-pointer">
+            <input
+              value={true}
+              type="radio"
+              name="victim"
+              className="radio radio-error border-main-red-dark me-2"
+            />
+            <span className="label-text">Yes</span>
+          </label>
+          <label className="label cursor-pointer">
+            <input
+              value={false}
+              type="radio"
+              name="victim"
               className="radio radio-error border-main-red-dark me-2"
             />
             <span className="label-text">No</span>
