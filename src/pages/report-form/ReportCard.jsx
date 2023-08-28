@@ -7,8 +7,8 @@ const formSteps = [
   { label: 'Welcome' },
   { label: 'Basic Info' },
   { label: 'Incident Details' },
-  { label: 'More Details' },
-  { label: 'Appendix' },
+  // { label: 'More Details' },
+  // { label: 'Appendix' },
   { label: 'Summary' },
 ];
 
@@ -21,7 +21,7 @@ const ReportCard = ({ step, setStep }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('submit');
+    // console.log('submit');
   };
 
   const stepRenderers = () => {
@@ -39,7 +39,7 @@ const ReportCard = ({ step, setStep }) => {
 
   return (
     <div className="flex h-full ">
-      <div className="bg-main-gray-light mx-4 h-full w-2/3 rounded shadow-xl">
+      <div className="mx-4 h-full w-2/3 rounded bg-main-gray-light shadow-xl">
         <div className="form-card mx-auto my-2 bg-slate-50 p-2">{stepRenderers()}</div>
 
         <div role="group" className="mb-3 flex justify-center">
@@ -84,7 +84,7 @@ const ProgressBar = ({ step }) => {
 const FormButton = ({ label, onClick, type = 'button' }) => {
   return (
     <button
-      className="border-b-secondary-red-light hover:border-secondary-red-light items-center space-x-2 border-2 border-transparent px-3 uppercase hover:border-2 hover:text-red-600"
+      className="items-center space-x-2 border-2 border-transparent border-b-secondary-red-light px-3 uppercase hover:border-2 hover:border-secondary-red-light hover:text-red-600"
       onClick={onClick}
       type={type}
     >
