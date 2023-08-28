@@ -27,7 +27,7 @@ const IncidentGeneralInfo = () => {
             <div key={type}>
               <div className="flex">
                 <label className="label cursor-pointer">
-                  <input type="checkbox" className="checkbox border-main-red-dark checkbox-error" />
+                  <input type="checkbox" className="checkbox-error checkbox border-main-red-dark" />
                   <span className="label-text ms-2">{type}</span>
                 </label>
               </div>
@@ -44,7 +44,7 @@ const IncidentGeneralInfo = () => {
               value={true}
               type="radio"
               name="involvment"
-              className="radio radio-error border-main-red-dark me-2"
+              className="radio-error radio me-2 border-main-red-dark"
             />
             <span className="label-text">Yes</span>
           </label>
@@ -53,7 +53,7 @@ const IncidentGeneralInfo = () => {
               value={false}
               type="radio"
               name="involvment"
-              className="radio radio-error border-main-red-dark me-2"
+              className="radio-error radio me-2 border-main-red-dark"
             />
             <span className="label-text">No</span>
           </label>
@@ -68,7 +68,7 @@ const IncidentGeneralInfo = () => {
               value={true}
               type="radio"
               name="victim"
-              className="radio radio-error border-main-red-dark me-2"
+              className="radio-error radio me-2 border-main-red-dark"
             />
             <span className="label-text">Yes</span>
           </label>
@@ -77,7 +77,7 @@ const IncidentGeneralInfo = () => {
               value={false}
               type="radio"
               name="victim"
-              className="radio radio-error border-main-red-dark me-2"
+              className="radio-error radio me-2 border-main-red-dark"
             />
             <span className="label-text">No</span>
           </label>

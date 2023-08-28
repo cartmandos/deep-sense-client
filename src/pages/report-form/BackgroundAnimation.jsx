@@ -3,8 +3,9 @@ import OxygenSVG from './OxygenSVG';
 import './backgroundAnimation.css';
 
 const BackgroundAnimation = () => {
+  // console.log('Bubbles animation triggered');
   return (
-    <div className="oxy-lg absolute h-full w-full overflow-hidden">
+    <div className="oxy-lg fixed h-full w-full overflow-hidden">
       <div className="oxy-sm relative flex justify-around">
         <OxygenSVG initSize={13} />
         <OxygenSVG initSize={9} />

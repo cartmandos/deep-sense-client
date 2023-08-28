@@ -14,7 +14,7 @@ const GeneralInfo = () => {
             value={'male'}
             type="radio"
             name="gender"
-            className="radio radio-error border-main-red-dark me-2"
+            className="radio-error radio me-2 border-main-red-dark"
           />
           <span className="label-text">Male</span>
         </label>
@@ -23,7 +23,7 @@ const GeneralInfo = () => {
             value={'female'}
             type="radio"
             name="gender"
-            className="radio radio-error border-main-red-dark me-2"
+            className="radio-error radio me-2 border-main-red-dark"
           />
           <span className="label-text">Female</span>
         </label>
@@ -32,7 +32,7 @@ const GeneralInfo = () => {
             value={'other'}
             type="radio"
             name="gender"
-            className="radio radio-error border-main-red-dark me-2"
+            className="radio-error radio me-2 border-main-red-dark"
           />
           <span className="label-text">Other</span>
         </label>
@@ -46,7 +46,7 @@ const GeneralInfo = () => {
             value={'metric'}
             type="radio"
             name="metric"
-            className="radio radio-error border-main-red-dark me-2"
+            className="radio-error radio me-2 border-main-red-dark"
           />
           <span className="label-text">Metric</span>
         </label>
@@ -56,7 +56,7 @@ const GeneralInfo = () => {
             value={'imperial'}
             type="radio"
             name="metric"
-            className="radio radio-error border-main-red-dark me-2"
+            className="radio-error radio me-2 border-main-red-dark"
           />
           <span className="label-text">Imperial</span>
         </label>
@@ -69,21 +69,21 @@ const GeneralInfo = () => {
           <input
             type="number"
             placeholder={units === 'metric' ? 'cm' : 'ft'}
-            className="input input-bordered border-main-red-dark input-error w-full max-w-xs"
+            className="input input-bordered input-error w-full max-w-xs border-main-red-dark"
           />
           {/* weight */}
           <span className="label">Weight</span>
           <input
             type="number"
             placeholder={units === 'metric' ? 'kg' : 'lbs'}
-            className="input input-bordered border-main-red-dark input-error w-full max-w-xs"
+            className="input input-bordered input-error w-full max-w-xs border-main-red-dark"
           />
           {/* age */}
           <span className="label">Age</span>
           <input
             type="number"
             placeholder="92"
-            className="input input-bordered border-main-red-dark input-error w-full max-w-xs"
+            className="input input-bordered input-error w-full max-w-xs border-main-red-dark"
           />
         </div>
       </div>
@@ -93,7 +93,7 @@ const GeneralInfo = () => {
           <div key={discipline}>
             <div className="flex">
               <label className="label cursor-pointer">
-                <input type="checkbox" className="checkbox border-main-red-dark checkbox-error" />
+                <input type="checkbox" className="checkbox-error checkbox border-main-red-dark" />
                 <span className="label-text ms-2">{discipline}</span>
               </label>
             </div>
@@ -106,7 +106,7 @@ const GeneralInfo = () => {
           <div key={certification}>
             <div className="flex">
               <label className="label cursor-pointer">
-                <input type="checkbox" className="checkbox border-main-red-dark checkbox-error" />
+                <input type="checkbox" className="checkbox-error checkbox border-main-red-dark" />
                 <span className="label-text ms-2">{certification}</span>
               </label>
             </div>
@@ -119,7 +119,7 @@ const GeneralInfo = () => {
           <div key={frequency}>
             <div className="flex">
               <label className="label cursor-pointer">
-                <input type="checkbox" className="checkbox border-main-red-dark checkbox-error" />
+                <input type="checkbox" className="checkbox-error checkbox border-main-red-dark" />
                 <span className="label-text ms-2">{frequency}</span>
               </label>
             </div>
