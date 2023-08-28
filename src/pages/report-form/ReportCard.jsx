@@ -1,6 +1,6 @@
 // import { useEffect, useState } from 'react';
 
-import { GeneralInstructions, GeneralInfo, IncidentGeneralInfo } from './Steps';
+import { GeneralInstructions, GeneralInfo, IncidentInfo, IncidentGeneralInfo } from './Steps';
 import BackgroundAnimation from './BackgroundAnimation';
 
 const formSteps = [
@@ -31,6 +31,8 @@ const ReportCard = ({ step, setStep }) => {
       case 1:
         return <GeneralInfo />;
       case 2:
+        return <IncidentInfo />;
+      case 3:
         return <IncidentGeneralInfo />;
       default:
         return <></>;
