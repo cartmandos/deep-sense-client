@@ -5,7 +5,7 @@ import { CERTIFICATION, DISCIPLINE, DIVE_FREQUENCY } from '../../../lib/data/che
 const GeneralInfo = () => {
   const [units, setUnits] = useState('metric');
   return (
-    <div className="p-3">
+    <div>
       {/* sex */}
       <span className="label-text uppercase">Gender</span>
       <div className="form-control flex-row">

@@ -1,51 +1,78 @@
-// import { useEffect, useState } from 'react';
+import { lazy, Suspense, useState, useRef, useEffect } from 'react';
 
-import { GeneralInstructions, GeneralInfo, IncidentGeneralInfo } from './Steps';
-import { BackgroundAnimation } from './layouts';
+import { BackgroundAnimation, FormButton, ProgressBar } from './layouts';
 
-const formSteps = [
-  { label: 'Welcome' },
-  { label: 'Basic Info' },
-  { label: 'Incident Details' },
-  // { label: 'More Details' },
-  // { label: 'Appendix' },
-  { label: 'Summary' },
-];
+const GeneralInstructions = lazy(() => import('./Steps/GeneralInstructions'));
+const GeneralInfo = lazy(() => import('./Steps/DiverGeneralInfo'));
+const IncidentGeneralInfo = lazy(() => import('./Steps/IncidentGeneralInfo'));
+const IncidentInfo = lazy(() => import('./Steps/IncidentInfo'));
 
-const ReportCard = ({ step, setStep }) => {
+/**
+ * @typedef {Object} formPages
+ */
+const FORM_PAGES = {
+  Welcome: <GeneralInstructions />,
+  'Basic Info': <GeneralInfo />,
+  'Incident Details': <IncidentGeneralInfo />,
+  'More Details': <IncidentInfo />,
+  // "Appendix": <Appendix />,
+};
+
+const BgColors = ['#ffffff', '#f2f2f2', '#e6e6e6', '#d9d9d9', '#cccccc', '#bfbfbf', '#b3b3b3'];
+
+/**
+ * @property {number} step
+ * @property {function} setStep
+ */
+export default function ReportCard({ step, setStep }) {
   // const [showAnimation, setShowAnimation] = useState(false);
+  const [formPages, setFormPages] = useState(FORM_PAGES);
+  const formPageRefs = useRef([]);
 
-  const handleNext = () => setStep((prevStep) => prevStep + 1);
+  useEffect(() => {
+    formPageRefs.current[step]?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
+  }, [step]);
 
-  const handlePrevious = () => setStep((prevStep) => prevStep - 1);
+  const handleNext = () => {
+    setStep((prevStep) => prevStep + 1);
+  };
+
+  const handlePrevious = () => {
+    setStep((prevStep) => prevStep - 1);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log('submit');
-  };
-
-  const stepRenderers = () => {
-    switch (step) {
-      case 0:
-        return <GeneralInstructions />;
-      case 1:
-        return <GeneralInfo />;
-      case 2:
-        return <IncidentGeneralInfo />;
-      default:
-        return <></>;
-    }
+    alert('Form submitted!');
   };
 
   return (
-    <div className="flex h-full ">
+    <div className="flex h-full" style={{ backgroundColor: BgColors[step] }}>
       <div className="mx-4 h-full w-2/3 rounded bg-main-gray-light shadow-xl">
-        <div className="form-card mx-auto my-2 bg-slate-50 p-2">{stepRenderers()}</div>
+        <div className="form-card mx-auto my-2 p-2" style={{ backgroundColor: BgColors[step + 2] }}>
+          <Suspense fallback={<div className="form-page">Loading...</div>}>
+            {Object.entries(formPages).map(([label, page], index) => (
+              <div
+                key={label}
+                className={`form-page ${index <= step ? 'block' : 'hidden'} ${
+                  index === step && 'animate-fade-in'
+                } ${index === step - 1 && 'animate-fade-out'}`}
+                style={{ backgroundColor: BgColors[step + 1] }}
+                ref={(el) => (formPageRefs.current[index] = el)}
+              >
+                {page}
+              </div>
+            ))}
+          </Suspense>
+        </div>
 
         <div role="group" className="mb-3 flex justify-center">
           {step > 0 && <FormButton label="Previous" onClick={handlePrevious} />}
 
-          {step < formSteps.length - 1 ? (
+          {step < Object.keys(formPages).length - 1 ? (
             <FormButton label="Next" onClick={handleNext} />
           ) : (
             <FormButton label="Submit" onClick={handleSubmit} type="submit" />
@@ -53,42 +80,10 @@ const ReportCard = ({ step, setStep }) => {
         </div>
       </div>
 
-      <div className="relative me-4 ms-auto pe-4 ps-8">
+      <div className="relative me-6 ms-auto pe-4 ps-8">
         <BackgroundAnimation />
-        <ProgressBar step={step} />
+        <ProgressBar labels={Object.keys(formPages)} step={step} />
       </div>
     </div>
   );
-};
-
-export default ReportCard;
-
-const ProgressBar = ({ step }) => {
-  return (
-    <ul className="steps steps-vertical">
-      {formSteps.map(({ label }, index) => (
-        <li
-          className={`step ${
-            index < step ? 'step-success' : index === step ? 'step-primary' : 'step-neutral'
-          }`}
-          key={label}
-          data-content={`${index < step ? '✓' : index + 1}`}
-        >
-          {label}
-        </li>
-      ))}
-    </ul>
-  );
-};
-
-const FormButton = ({ label, onClick, type = 'button' }) => {
-  return (
-    <button
-      className="items-center space-x-2 border-2 border-transparent border-b-secondary-red-light px-3 uppercase hover:border-2 hover:border-secondary-red-light hover:text-red-600"
-      onClick={onClick}
-      type={type}
-    >
-      {label}
-    </button>
-  );
-};
+}

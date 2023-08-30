@@ -2,7 +2,7 @@ import OxygenSVG from '../../../../lib/svg/OxygenSVG';
 
 import './backgroundAnimation.css';
 
-const BackgroundAnimation = () => {
+export const BackgroundAnimation = () => {
   // console.log('Bubbles animation triggered');
   return (
     <div className="oxy-lg fixed h-full w-full overflow-hidden">
@@ -26,5 +26,3 @@ const BackgroundAnimation = () => {
     </div>
   );
 };
-
-export default BackgroundAnimation;
