@@ -1,4 +1,4 @@
-import { EyeSlashIcon, UserGroupIcon, MagnifyingGlassIcon } from '@lib/svg/Icons';
+import { EyeSlashIcon, UserGroupIcon, MagnifyingGlassIcon } from '@lib/svg/icons';
 
 export default function HighlightsSection() {
   return (
