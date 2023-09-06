@@ -1,13 +1,7 @@
 import InfoImg1 from '@assets/images/infographics_01.png';
 import InfoImg2 from '@assets/images/infographics_02.png';
 
-export default function FeatureContentSection({
-  title,
-  content,
-  imageSrc,
-  imageWidth,
-  imageAlignment,
-}) {
+export default function FeatureContentSection({ title, content, imageAlignment, ...rest }) {
   return (
     <section className="feature-content bg-main-gray-light">
       <div className="container mx-auto py-16">
@@ -28,7 +22,7 @@ export default function FeatureContentSection({
               imageAlignment === 'left' ? 'lg:w-1/2' : 'lg:w-1/2'
             }`}
           >
-            <img src={imageSrc} width={imageWidth} height="auto" alt="hero" />
+            <img {...rest} alt="hero" />
           </div>
 
           {imageAlignment === 'right' && (
@@ -54,9 +48,10 @@ export const FeatureContentLeftSection = () => {
       content="Our comprehensive incident analysis empowers you with a deeper understanding of diving risks. 
       Discover trends, precautions, 
       and best practices through visually engaging infographics and detailed data breakdowns."
-      imageSrc={InfoImg1}
-      imageWidth="400px"
       imageAlignment="left"
+      src={InfoImg1}
+      width="400px"
+      height="400px"
     />
   );
 };
@@ -68,9 +63,10 @@ export const FeatureContentRightSection = () => {
       content="Join deepsense and embark on your safer diving journey now. 
       Improve dive planning, form the future of safety guidelines, 
       progress the diving community - through shared knowledge."
-      imageSrc={InfoImg2}
-      imageWidth="600px"
       imageAlignment="right"
+      src={InfoImg2}
+      width="600px"
+      height="340px"
     />
   );
 };

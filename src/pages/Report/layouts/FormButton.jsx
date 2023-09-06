@@ -1,7 +1,5 @@
 /**
- * @property {string} label
- * @property {function} onClick
- * @property {string} type
+ * @param {{ label: string, onClick: () => void, type?: string }} props
  */
 export const FormButton = ({ label, onClick, type = 'button' }) => {
   return (

@@ -1,9 +1,8 @@
-import OxygenSVG from '../../../../lib/svg/OxygenSVG';
+import { Oxygen as OxygenSVG } from '@lib/svg/oxygen';
 
 import './backgroundAnimation.css';
 
 export const BackgroundAnimation = () => {
-  // console.log('Bubbles animation triggered');
   return (
     <div className="oxy-lg fixed h-full w-full overflow-hidden">
       <div className="oxy-sm relative flex justify-around">

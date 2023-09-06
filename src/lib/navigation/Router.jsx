@@ -2,7 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 
 import AppLayout from '@ui/layouts/AppLayout';
 import { LandingPage } from '@pages/LandingPage';
-import ReportForm from '@pages/Report/ReportForm';
+import { ReportPage } from '@pages/Report';
 import Analysis from '@pages/Analysis';
 
 import { ROOT, REPORT, ANALYSIS } from './paths';
@@ -17,7 +17,7 @@ const Router = createBrowserRouter([
       },
       {
         path: REPORT,
-        element: <ReportForm />,
+        element: <ReportPage />,
       },
       {
         path: ANALYSIS,

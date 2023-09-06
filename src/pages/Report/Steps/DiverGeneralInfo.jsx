@@ -1,11 +1,11 @@
 import { useState } from 'react';
 
-import { CERTIFICATION, DISCIPLINE, DIVE_FREQUENCY } from '../../../lib/data/checkboxData';
+import { CERTIFICATION, DISCIPLINE, DIVE_FREQUENCY } from '@lib/data/checkboxData';
 
-const GeneralInfo = () => {
+const DiverGeneralInfo = () => {
   const [units, setUnits] = useState('metric');
   return (
-    <div>
+    <>
       {/* sex */}
       <span className="label-text uppercase">Gender</span>
       <div className="form-control flex-row">
@@ -113,7 +113,7 @@ const GeneralInfo = () => {
           </div>
         );
       })}
-      {/* dive frequncy */}
+      {/* dive frequency */}
       {DIVE_FREQUENCY.map((frequency) => {
         return (
           <div key={frequency}>
@@ -126,8 +126,8 @@ const GeneralInfo = () => {
           </div>
         );
       })}
-    </div>
+    </>
   );
 };
 
-export default GeneralInfo;
+export default DiverGeneralInfo;

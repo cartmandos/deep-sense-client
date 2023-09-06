@@ -1,8 +1,8 @@
-import { INCIDENT_TYPE } from '../../../lib/data/checkboxData';
+import { INCIDENT_TYPE } from '@lib/data/checkboxData';
 
 const IncidentGeneralInfo = () => {
   return (
-    <div>
+    <>
       {/* location - country */}
       <span className="label  uppercase">Incident Location - country</span>
       <input
@@ -35,15 +35,15 @@ const IncidentGeneralInfo = () => {
           );
         })}
       </div>
-      {/* involvment */}
-      <span className="label-text uppercase">Incident Inolvment</span>
+      {/* involvement */}
+      <span className="label-text uppercase">Incident Involvement</span>
       <div className="flex">
         <div className="form-control flex-row">
           <label className="label cursor-pointer">
             <input
               value={true}
               type="radio"
-              name="involvment"
+              name="involvement"
               className="radio-error radio me-2 border-main-red-dark"
             />
             <span className="label-text">Yes</span>
@@ -52,7 +52,7 @@ const IncidentGeneralInfo = () => {
             <input
               value={false}
               type="radio"
-              name="involvment"
+              name="involvement"
               className="radio-error radio me-2 border-main-red-dark"
             />
             <span className="label-text">No</span>
@@ -83,7 +83,7 @@ const IncidentGeneralInfo = () => {
           </label>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -1,4 +1,5 @@
-export { default as IncidentInfo } from './IncidentInfo';
-export { default as IncidentGeneralInfo } from './IncidentGeneralInfo';
-export { default as GeneralInstructions } from './GeneralInstructions';
-export { default as GeneralInfo } from './DiverGeneralInfo';
+export * from './IncidentInfo';
+export * from './IncidentGeneralInfo';
+export * from './GeneralInstructions';
+export * from './DiverGeneralInfo';
+export * from './AppendixInfo';
