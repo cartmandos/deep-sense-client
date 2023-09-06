@@ -1,10 +1,8 @@
-import { useState } from 'react';
-
 import { CERTIFICATION, DISCIPLINE, DIVE_FREQUENCY } from '@lib/data/checkboxData';
-import { useFormData } from '../FormContext';
+import { useForm } from '../hooks/useForm';
 
-const DiverGeneralInfo = () => {
-  const { formData, handleChange } = useFormData();
+const GeneralInfo = () => {
+  const { formData, handleChange } = useForm();
 
   return (
     <div>
@@ -16,7 +14,7 @@ const DiverGeneralInfo = () => {
             type="radio"
             name="units"
             value="metric"
-            onChange={(e) => handleChange(e)}
+            onChange={handleChange}
             className="radio-error radio me-2 border-main-red-dark"
             checked={formData.units === 'metric' && true}
           />
@@ -27,7 +25,7 @@ const DiverGeneralInfo = () => {
             type="radio"
             name="units"
             value="imperial"
-            onChange={(e) => handleChange(e)}
+            onChange={handleChange}
             className="radio-error radio me-2 border-main-red-dark"
             checked={formData.units === 'imperial' && true}
           />
@@ -42,7 +40,7 @@ const DiverGeneralInfo = () => {
             type="radio"
             name="gender"
             value="male"
-            onChange={(e) => handleChange(e)}
+            onChange={handleChange}
             className="radio-error radio me-2 border-main-red-dark"
             checked={formData.gender === 'male' && true}
           />
@@ -53,7 +51,7 @@ const DiverGeneralInfo = () => {
             type="radio"
             name="gender"
             value="female"
-            onChange={(e) => handleChange(e)}
+            onChange={handleChange}
             className="radio-error radio me-2 border-main-red-dark"
             checked={formData.gender === 'female' && true}
           />
@@ -64,7 +62,7 @@ const DiverGeneralInfo = () => {
             type="radio"
             name="gender"
             value="other"
-            onChange={(e) => handleChange(e)}
+            onChange={handleChange}
             className="radio-error radio me-2 border-main-red-dark"
           />
           <span className="label-text">Other</span>
@@ -81,7 +79,7 @@ const DiverGeneralInfo = () => {
             value={formData.height !== 0 && formData.height}
             placeholder={formData.units === 'metric' ? 'cm' : 'inches'}
             className="input input-bordered input-error w-full max-w-xs border-main-red-dark"
-            onChange={(e) => handleChange(e)}
+            onChange={handleChange}
           />
           {/* weight */}
           <span className="label">Weight</span>
@@ -91,7 +89,7 @@ const DiverGeneralInfo = () => {
             value={formData.weight !== 0 && formData.weight}
             placeholder={formData.units === 'metric' ? 'kg' : 'lbs'}
             className="input input-bordered input-error w-full max-w-xs border-main-red-dark"
-            onChange={(e) => handleChange(e)}
+            onChange={handleChange}
           />
           {/* age */}
           <span className="label">Age</span>
@@ -101,7 +99,7 @@ const DiverGeneralInfo = () => {
             value={formData.age !== 0 && formData.age}
             placeholder="years"
             className="input input-bordered input-error w-full max-w-xs border-main-red-dark"
-            onChange={(e) => handleChange(e)}
+            onChange={handleChange}
           />
         </div>
       </div>
@@ -119,7 +117,7 @@ const DiverGeneralInfo = () => {
                     value={discipline}
                     type="radio"
                     className="radio-error radio border-main-red-dark"
-                    onChange={(e) => handleChange(e)}
+                    onChange={handleChange}
                     checked={formData.discipline === discipline ? true : false}
                   />
                   <span className="label-text ms-2">{discipline}</span>
@@ -146,7 +144,7 @@ const DiverGeneralInfo = () => {
                     value={certification}
                     type="radio"
                     className="radio-error radio border-main-red-dark"
-                    onChange={(e) => handleChange(e)}
+                    onChange={handleChange}
                     checked={formData.certification === certification ? true : false}
                   />
                   <span className="label-text ms-2">{certification}</span>
@@ -171,7 +169,7 @@ const DiverGeneralInfo = () => {
                     value={frequency}
                     type="radio"
                     className="radio-error radio border-main-red-dark"
-                    onChange={(e) => handleChange(e)}
+                    onChange={handleChange}
                     checked={formData.frequency === frequency ? true : false}
                   />
                   <span className="label-text ms-2">{frequency}</span>
@@ -185,4 +183,4 @@ const DiverGeneralInfo = () => {
   );
 };
 
-export default DiverGeneralInfo;
+export default GeneralInfo;
