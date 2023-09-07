@@ -71,7 +71,7 @@ const IncidentGeneralInfo = () => {
               value={true}
               className="radio-error radio me-2 border-main-red-dark"
               onChange={handleChange}
-              checked={formData.involvement === true && true}
+              checked={formData.involvement === 'true' && true}
             />
             <span className="label-text">Yes</span>
           </label>
@@ -82,14 +82,14 @@ const IncidentGeneralInfo = () => {
               value={false}
               className="radio-error radio me-2 border-main-red-dark"
               onChange={handleChange}
-              checked={formData.involvement === false && true}
+              checked={formData.involvement === 'false' && true}
             />
             <span className="label-text">No</span>
           </label>
         </div>
       </div>
       {/* victim */}
-      {/* <span className="label-text uppercase">Victim</span>
+      <span className="label-text uppercase">Victim</span>
       <div className="flex">
         <div className="form-control flex-row">
           <label className="mb- label cursor-pointer">
@@ -99,7 +99,7 @@ const IncidentGeneralInfo = () => {
               value={true}
               className="radio-error radio me-2 border-main-red-dark"
               onChange={handleChange}
-              checked={formData.victim === false && true}
+              checked={formData.victim === 'true' && true}
             />
             <span className="label-text">Yes</span>
           </label>
@@ -110,12 +110,12 @@ const IncidentGeneralInfo = () => {
               value={false}
               className="radio-error radio me-2 border-main-red-dark"
               onChange={handleChange}
-              checked={formData.victim === false && true}
+              checked={formData.victim === 'false' && true}
             />
             <span className="label-text">No</span>
           </label>
         </div>
-      </div> */}
+      </div>
     </div>
   );
 };
