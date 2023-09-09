@@ -1,5 +1,8 @@
 <p align="center">
-    <img src="https://github.com/cartmandos/deep-sense-client/assets/42044559/f7557751-0e87-4f8d-879c-438d506e6817"/>
+  <a href="https://deepsense.vercel.app/" rel="noopener" alt="deepsense">
+    <img src="https://github.com/cartmandos/deep-sense-client/assets/42044559/e7e3e2ea-0778-4a95-8695-97e37bac8657"/>
+    <!-- <img src="https://github.com/cartmandos/deep-sense-client/assets/42044559/f7557751-0e87-4f8d-879c-438d506e6817"/> -->
+  </a>
 </p>
 
 # deep**sense**
@@ -15,4 +18,4 @@ and providing analysis to help divers make better decisions.
 
 ---
 
-Made with 💜 by @cartmandos and @NirItaCohen
+Made with ❤️ by @[Damien Shomrai](https://github.com/cartmandos) and @[Nir Cohen](NirItaCohen)
