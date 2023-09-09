@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
 
 import { ROOT, REPORT, ANALYSIS } from '@lib/navigation';
-import Logo from '../Logo';
+import { Logo } from '@lib/svg/logo';
 
 const Header = () => {
   return (
-    <header className="flex flex-wrap items-center justify-between">
+    <header className="flex flex-wrap items-center justify-between bg-transparent">
       <div className="mb-2 p-1">
         <Link className="flex items-center space-x-2  text-red-50" to={ROOT}>
           <Logo width={96} height={96} />

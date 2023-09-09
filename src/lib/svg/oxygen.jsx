@@ -1,5 +1,7 @@
-// eslint-disable-next-line react/prop-types
-const OxygenSVG = ({ initSize }) => {
+/**
+ * @param {number} initSize
+ */
+const Oxygen = ({ initSize }) => {
   return (
     <div>
       <svg
@@ -35,4 +37,4 @@ const OxygenSVG = ({ initSize }) => {
   );
 };
 
-export default OxygenSVG;
+export { Oxygen };

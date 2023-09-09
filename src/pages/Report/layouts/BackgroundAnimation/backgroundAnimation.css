@@ -5,7 +5,7 @@
 
 .oxy-sm svg {
   margin: 0 1rem;
-  animation: animate 20s linear infinite;
+  animation: animate 2s linear infinite;
   animation-duration: calc(50s / var(--i));
 }
 

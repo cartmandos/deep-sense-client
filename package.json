@@ -1,7 +1,7 @@
 {
   "name": "deep-sense--client",
   "private": true,
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "DeepSense Frontend Repository",
   "type": "module",
   "repository": {
@@ -21,12 +21,12 @@
   "lint-staged": {
     "*.{js,jsx,json,md}": [
       "prettier --write"
+    ],
+    "*.{js,jsx}": [
+      "eslint"
     ]
   },
   "dependencies": {
-    "@emotion/react": "^11.11.1",
-    "@emotion/styled": "^11.11.0",
-    "@mui/material": "^5.14.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.15.0"
@@ -36,16 +36,17 @@
     "@types/react-dom": "^18.2.7",
     "@vitejs/plugin-react": "^4.0.4",
     "autoprefixer": "^10.4.15",
-    "eslint": "^8.47.0",
+    "daisyui": "^3.6.4",
+    "eslint": "^8.48.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
-    "postcss": "^8.4.28",
-    "prettier": "^3.0.2",
-    "prettier-plugin-tailwindcss": "^0.5.3",
+    "postcss": "^8.4.29",
+    "prettier": "^3.0.3",
+    "prettier-plugin-tailwindcss": "^0.5.4",
     "tailwindcss": "^3.3.3",
     "vite": "^4.4.9"
   }

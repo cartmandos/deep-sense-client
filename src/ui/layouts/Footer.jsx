@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import { ROOT } from '@lib/navigation';
-import Logo from '@ui/Logo';
+import { Logo } from '@lib/svg/logo';
 
 const Footer = () => {
   return (

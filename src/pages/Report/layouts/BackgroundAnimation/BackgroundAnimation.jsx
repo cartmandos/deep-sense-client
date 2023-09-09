@@ -1,11 +1,11 @@
-import OxygenSVG from './OxygenSVG';
+import { Oxygen as OxygenSVG } from '@lib/svg/oxygen';
 
 import './backgroundAnimation.css';
 
-const BackgroundAnimation = () => {
+export const BackgroundAnimation = () => {
   return (
-    <div className="oxy-lg absolute  h-full w-full overflow-hidden">
-      <div className="oxy-sm relative  flex justify-around">
+    <div className="oxy-lg fixed h-full w-full overflow-hidden">
+      <div className="oxy-sm relative flex justify-around">
         <OxygenSVG initSize={13} />
         <OxygenSVG initSize={9} />
         <OxygenSVG initSize={12} />
@@ -25,5 +25,3 @@ const BackgroundAnimation = () => {
     </div>
   );
 };
-
-export default BackgroundAnimation;

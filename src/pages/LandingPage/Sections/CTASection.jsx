@@ -39,6 +39,7 @@ const CTAFooterButton = () => {
         src={diverIcon}
         width="20"
         height="20"
+        alt="diver"
       />
     </Link>
   );
