@@ -71,7 +71,7 @@ const IncidentGeneralInfo = () => {
               value={true}
               className="radio-error radio me-2 border-main-red-dark"
               onChange={handleChange}
-              checked={formData.involvement === 'true' && true}
+              checked={formData.involvement}
             />
             <span className="label-text">Yes</span>
           </label>
@@ -82,7 +82,7 @@ const IncidentGeneralInfo = () => {
               value={false}
               className="radio-error radio me-2 border-main-red-dark"
               onChange={handleChange}
-              checked={formData.involvement === 'false' && true}
+              checked={formData.involvement}
             />
             <span className="label-text">No</span>
           </label>
@@ -99,7 +99,7 @@ const IncidentGeneralInfo = () => {
               value={true}
               className="radio-error radio me-2 border-main-red-dark"
               onChange={handleChange}
-              checked={formData.victim === 'true' && true}
+              checked={formData.victim}
             />
             <span className="label-text">Yes</span>
           </label>
@@ -110,7 +110,7 @@ const IncidentGeneralInfo = () => {
               value={false}
               className="radio-error radio me-2 border-main-red-dark"
               onChange={handleChange}
-              checked={formData.victim === 'false' && true}
+              checked={formData.victim}
             />
             <span className="label-text">No</span>
           </label>

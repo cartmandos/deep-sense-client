@@ -31,6 +31,7 @@ const defaultValues = {
 export default function FormProvider({ children }) {
   const [formData, setFormData] = useState(defaultValues);
 
+  //NOTE: (bug) converts boolean to string
   /**
    * @param {React.ChangeEvent<HTMLInputElement>} e
    */
