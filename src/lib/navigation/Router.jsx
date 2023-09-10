@@ -1,9 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 
 import AppLayout from '@ui/layouts/AppLayout';
-import { LandingPage } from '@pages/LandingPage';
-import { ReportPage } from '@pages/Report';
-import Analysis from '@pages/Analysis';
+import { ReportPage, LandingPage, AnalyticsPage } from '@pages';
 
 import { ROOT, REPORT, ANALYSIS } from './paths';
 
@@ -21,7 +19,11 @@ const Router = createBrowserRouter([
       },
       {
         path: ANALYSIS,
-        element: <Analysis />,
+        element: <AnalyticsPage />,
+      },
+      {
+        path: '*',
+        element: <div>404</div>,
       },
     ],
   },

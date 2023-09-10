@@ -60,7 +60,7 @@ export const FeatureContentRightSection = () => {
   return (
     <FeatureContentSection
       title="Incident reports can save lives"
-      content="Join deepsense and embark on your safer diving journey now. 
+      content="Join divesense and embark on your safer diving journey now. 
       Improve dive planning, form the future of safety guidelines, 
       progress the diving community - through shared knowledge."
       imageAlignment="right"

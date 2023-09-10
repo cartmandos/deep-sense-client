@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://deepsense.vercel.app/" rel="noopener" alt="deepsense">
+  <a href="https://www.divesense.tech/" rel="noopener" alt="divesense">
     <img src="https://github.com/cartmandos/deep-sense-client/assets/42044559/e7e3e2ea-0778-4a95-8695-97e37bac8657"/>
     <!-- <img src="https://github.com/cartmandos/deep-sense-client/assets/42044559/f7557751-0e87-4f8d-879c-438d506e6817"/> -->
   </a>

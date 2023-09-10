@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState, createContext } from 'react';
 
-import { FormContext } from './context/FormContext';
+const FormContext = createContext();
 
 const defaultValues = {
   gender: '',
@@ -56,3 +56,5 @@ export default function FormProvider({ children }) {
 
   return <FormContext.Provider value={FormContextProps}>{children}</FormContext.Provider>;
 }
+
+export {FormContext}

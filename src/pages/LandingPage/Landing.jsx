@@ -5,7 +5,7 @@ import {
   FeatureFocusSection,
   FeatureContentRightSection,
   CTASection,
-} from './Sections';
+} from './sections';
 
 import { HeroImage } from './layouts';
 
