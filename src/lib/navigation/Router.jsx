@@ -3,7 +3,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import AppLayout from '@ui/layouts/AppLayout';
 import { LandingPage } from '@pages/LandingPage';
 import { ReportPage } from '@pages/Report';
-import Analysis from '@pages/Analysis';
+import Analysis from '@pages/Analysis/Analysis';
 
 import { ROOT, REPORT, ANALYSIS } from './paths';
 
