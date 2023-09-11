@@ -1,5 +1,5 @@
 const AnalyticsPage = () => {
-  return <div>Analysis</div>
-}
+  return <div>Analysis</div>;
+};
 
 export default AnalyticsPage;

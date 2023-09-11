@@ -49,7 +49,6 @@ export const ReportForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
   };
 
   const ContinueButton = () => {
