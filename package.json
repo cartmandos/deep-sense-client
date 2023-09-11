@@ -19,11 +19,12 @@
     "prepare": "husky install"
   },
   "lint-staged": {
-    "*.{js,jsx,json,md}": [
-      "prettier --write"
-    ],
     "*.{js,jsx}": [
+      "prettier --check",
       "eslint"
+    ],
+    "*.{json,md}": [
+      "prettier --check"
     ]
   },
   "dependencies": {
