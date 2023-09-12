@@ -1,6 +1,6 @@
 import { lazy, Suspense, useState, useRef, useEffect } from 'react';
 
-import { BackgroundAnimation, FormButton, ProgressBar } from './layouts';
+import { Bubbles, FormButton, ProgressBar } from './layouts';
 
 import { useForm } from './hooks/useForm';
 
@@ -62,6 +62,7 @@ export const ReportForm = () => {
         onSubmit={handleSubmit}
       >
         <div className="mx-auto my-2 h-full p-2">
+          <h1 className="text-center text-2xl font-bold">Incident Report</h1>
           <GeneralInstructions />
           <Suspense fallback={<div>Loading...</div>}>
             {step > 0 &&
@@ -92,7 +93,7 @@ export const ReportForm = () => {
       <div className="relative me-6 ms-auto pe-4 ps-8">
         <ProgressBar labels={Object.keys(formPages)} step={step} />
       </div>
-      <BackgroundAnimation />
+      <Bubbles />
     </div>
   );
 };

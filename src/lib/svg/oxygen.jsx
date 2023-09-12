@@ -1,6 +1,4 @@
-/**
- * @param {number} initSize
- */
+/** @param {{ initSize: number}} */
 const Oxygen = ({ initSize }) => {
   return (
     <div>

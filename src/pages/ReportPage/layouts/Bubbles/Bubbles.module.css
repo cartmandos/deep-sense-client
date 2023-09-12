@@ -1,9 +1,10 @@
-.oxy-sm,
-.oxy-lg {
+/* stylelint-disable selector-class-pattern */
+.oxySmall,
+.oxyLarge {
   z-index: -10;
 }
 
-.oxy-sm svg {
+.oxySmall svg {
   margin: 0 1rem;
   animation: animate 2s linear infinite;
   animation-duration: calc(50s / var(--i));
@@ -13,6 +14,7 @@
   0% {
     transform: translateY(100vh) scale(0);
   }
+
   100% {
     transform: translateY(-10vh) scale(1);
   }
