@@ -30,11 +30,7 @@ const Carousel = ({ setView }) => {
 
   const carouselItems = CAROUSEL_DATA.map((item, index) => {
     return (
-      <div
-        key={item.view}
-        id={`slide${index + 1}`}
-        className="carousel-item relative w-full rounded-br-lg border border-slate-200 shadow-md"
-      >
+      <div key={item.view} id={`slide${index + 1}`} className="carousel-item relative w-full ">
         <BackgroundCardImg
           imageUrl={item.imgSrc}
           alt={item.imgAlt}
@@ -50,14 +46,14 @@ const Carousel = ({ setView }) => {
           <a
             href={index === 0 ? `#slide${CAROUSEL_DATA.length}` : `#slide${index}`}
             className="btn btn-circle"
-            onClick={() => leftClickHandler(index)}
+            onClick={leftClickHandler(index)}
           >
             ❮
           </a>
           <a
             href={index + 1 === CAROUSEL_DATA.length ? `#slide${1}` : `#slide${index + 2}`}
             className="btn btn-circle"
-            onClick={() => rightClickHandler(index)}
+            onClick={rightClickHandler(index)}
           >
             ❯
           </a>
@@ -67,7 +63,7 @@ const Carousel = ({ setView }) => {
   });
 
   return (
-    <div className="flex justify-center ">
+    <div className="flex justify-center">
       <div className="carousel w-3/5">{carouselItems}</div>
     </div>
   );
