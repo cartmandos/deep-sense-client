@@ -5,15 +5,28 @@ import heroImageLg from '@assets/images/hero-background_01-1440w.jpg';
 import heroImageMd from '@assets/images/hero-background_01-1024w.jpg';
 import heroImageSm from '@assets/images/hero-background_01-480w.jpg';
 
-const Carousel = () => {
+// TODO: separate carousel creation function and creation data
+
+const Carousel = ({ setView }) => {
   // TODO: change/add views
-  // TODO: seperate carousel creation function and creation data
   const CAROUSEL_DATA = [
     { imgSrc: heroImageLg, imgAlt: 'img1', view: 'main' },
     { imgSrc: heroImageMd, imgAlt: 'img2', view: 'countries' },
     { imgSrc: heroImageSm, imgAlt: 'img3', view: 'injuries' },
     { imgSrc: heroImageXl, imgAlt: 'img4', view: 'experience' },
   ];
+
+  const leftClickHandler = (index) => {
+    console.log(index);
+    index === 0
+      ? setView(CAROUSEL_DATA[CAROUSEL_DATA.length - 1])
+      : setView(CAROUSEL_DATA[index - 1]);
+  };
+  const rightClickHandler = (index) => {
+    index + 1 === CAROUSEL_DATA.length
+      ? setView(CAROUSEL_DATA[0])
+      : setView(CAROUSEL_DATA[index + 1]);
+  };
 
   const carouselItems = CAROUSEL_DATA.map((item, index) => {
     return (
@@ -33,15 +46,18 @@ const Carousel = () => {
           </p>
         </BackgroundCardImg>
         <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+          {/* REVIEW: decide between controlling with url params or state */}
           <a
             href={index === 0 ? `#slide${CAROUSEL_DATA.length}` : `#slide${index}`}
             className="btn btn-circle"
+            onClick={() => leftClickHandler(index)}
           >
             ❮
           </a>
           <a
             href={index + 1 === CAROUSEL_DATA.length ? `#slide${1}` : `#slide${index + 2}`}
             className="btn btn-circle"
+            onClick={() => rightClickHandler(index)}
           >
             ❯
           </a>

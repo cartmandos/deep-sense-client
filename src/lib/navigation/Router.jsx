@@ -1,9 +1,9 @@
 import { createBrowserRouter } from 'react-router-dom';
 
 import AppLayout from '@ui/layouts/AppLayout';
-import { LandingPage } from '@pages/LandingPage';
-import { ReportPage } from '@pages/Report';
-import Analysis from '@pages/Analysis/Analysis';
+import Landing from '@pages/LandingPage/Landing';
+import Report from '@pages/ReportPage/Report';
+import Analytics from '@pages/AnalyticsPage/Analytics';
 
 import { ROOT, REPORT, ANALYSIS } from './paths';
 
@@ -13,15 +13,15 @@ const Router = createBrowserRouter([
     children: [
       {
         path: ROOT,
-        element: <LandingPage />,
+        element: <Landing />,
       },
       {
         path: REPORT,
-        element: <ReportPage />,
+        element: <Report />,
       },
       {
         path: ANALYSIS,
-        element: <AnalyticsPage />,
+        element: <Analytics />,
       },
       {
         path: '*',
