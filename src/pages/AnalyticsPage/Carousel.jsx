@@ -19,13 +19,13 @@ const Carousel = ({ setView }) => {
   const leftClickHandler = (index) => {
     console.log(index);
     index === 0
-      ? setView(CAROUSEL_DATA[CAROUSEL_DATA.length - 1])
-      : setView(CAROUSEL_DATA[index - 1]);
+      ? setView(CAROUSEL_DATA[CAROUSEL_DATA.length - 1].view)
+      : setView(CAROUSEL_DATA[index - 1].view);
   };
   const rightClickHandler = (index) => {
     index + 1 === CAROUSEL_DATA.length
-      ? setView(CAROUSEL_DATA[0])
-      : setView(CAROUSEL_DATA[index + 1]);
+      ? setView(CAROUSEL_DATA[0].view)
+      : setView(CAROUSEL_DATA[index + 1].view);
   };
 
   const carouselItems = CAROUSEL_DATA.map((item, index) => {
