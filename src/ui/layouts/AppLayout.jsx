@@ -8,7 +8,7 @@ const AppLayout = () => {
   return (
     <PageWrapper>
       <Header />
-      <main className="flex-grow">
+      <main className="h-1 flex-grow ">
         <Outlet />
       </main>
       <Footer />

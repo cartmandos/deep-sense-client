@@ -17,7 +17,6 @@ const Carousel = ({ setView }) => {
   ];
 
   const leftClickHandler = (index) => {
-    console.log(index);
     index === 0
       ? setView(CAROUSEL_DATA[CAROUSEL_DATA.length - 1].view)
       : setView(CAROUSEL_DATA[index - 1].view);
@@ -46,14 +45,14 @@ const Carousel = ({ setView }) => {
           <a
             href={index === 0 ? `#slide${CAROUSEL_DATA.length}` : `#slide${index}`}
             className="btn btn-circle"
-            onClick={leftClickHandler(index)}
+            onClick={() => leftClickHandler(index)}
           >
             ❮
           </a>
           <a
             href={index + 1 === CAROUSEL_DATA.length ? `#slide${1}` : `#slide${index + 2}`}
             className="btn btn-circle"
-            onClick={rightClickHandler(index)}
+            onClick={() => rightClickHandler(index)}
           >
             ❯
           </a>
