@@ -32,13 +32,7 @@ const PieChart = ({ dataCharts }) => {
     ],
   };
 
-  return (
-    <div>
-      <div className="h-96 w-96">
-        <Pie data={chartData} />
-      </div>
-    </div>
-  );
+  return <Pie data={chartData} />;
 };
 
 export default PieChart;

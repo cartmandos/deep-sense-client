@@ -3,7 +3,7 @@ import { Doughnut } from 'react-chartjs-2';
 
 const DoughnutChart = ({ dataCharts }) => {
   const { data, label } = dataCharts;
-  ChartJS.register(ArcElement, Tooltip);
+  ChartJS.register(ArcElement, Tooltip, Legend);
 
   const chartData = {
     // labels: data.map((item) => `${label}s: ${item.title}`),
@@ -32,30 +32,52 @@ const DoughnutChart = ({ dataCharts }) => {
       },
     ],
   };
-  const textCenter = {
-    id: 'textCenter',
 
-    beforeDatasetDraw(chart) {
-      const { ctx } = chart;
-      ctx.save();
-      ctx.font = 'bolder 16px Arial';
-      ctx.fillStyle = 'red';
-      ctx.textAlign = 'center';
-      ctx.fillText(
-        label.charAt(0).toUpperCase().concat(label.slice(1).toString()),
-        chart.getDatasetMeta(0).data[0].x,
-        chart.getDatasetMeta(0).data[0].y,
-      );
+  const options = {
+    maintainAspectRatio: true,
+    aspectRatio: 2,
+    title: {
+      display: true,
+      text: `${label}s`,
+    },
+    plugins: {
+      subtitle: {
+        display: true,
+        text: 'Custom Chart Subtitle',
+      },
+      legend: {
+        display: true,
+        position: 'bottom',
+        align: 'start',
+        // fullSize: false,
+        // maxWidth: 5,
+      },
     },
   };
+  //
 
   return (
-    <div>
-      <div className="h-96 w-96">
-        <Doughnut data={chartData} plugins={[textCenter]} />
-      </div>
+    <div className="h-full w-1/3">
+      <Doughnut data={chartData} options={options} className="h-full" />
     </div>
   );
 };
 
 export default DoughnutChart;
+
+//const textCenter = {
+//   id: 'textCenter',
+
+//   beforeDatasetDraw(chart) {
+//     const { ctx } = chart;
+//     ctx.save();
+//     ctx.font = 'bolder 16px Arial';
+//     ctx.fillStyle = 'red';
+//     ctx.textAlign = 'center';
+//     ctx.fillText(
+//       label.charAt(0).toUpperCase().concat(label.slice(1).toString()),
+//       chart.getDatasetMeta(0).data[0].x,
+//       chart.getDatasetMeta(0).data[0].y,
+//     );
+//   },
+// };
