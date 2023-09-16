@@ -11,18 +11,17 @@ const PieChartHighCharts = ({ dataCharts }) => {
       layout: 'vertical',
       align: 'left',
       verticalAlign: 'top',
-      itemWidth: 100,
-      fontSize: '8px',
+      itemWidth: 120,
+      itemStyle: {
+        fontSize: '0.75rem',
+      },
       x: 0,
       y: 30,
-      // title: {
-      //   fontSize: '4px',
-      // },
     },
     chart: {
       type: 'pie',
     },
-
+// NOTE: add onClick function that will open a modal with the data of the clicked chart(not best choice in my opinion but an option)
     title: {
       text: label.charAt(0).toUpperCase().concat(label.slice(1).toString()),
       align: 'center',
@@ -34,7 +33,7 @@ const PieChartHighCharts = ({ dataCharts }) => {
         dataLabels: {
           enabled: false,
         },
-        showInLegend: true,
+        showInLegend: false,
       },
     },
     series: [

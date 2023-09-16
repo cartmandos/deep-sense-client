@@ -1,31 +1,54 @@
 import PieChartHighCharts from './PieChartHighCharts';
 
-const Charts = ({ view, dataCharts }) => {
+const Charts = ({ dataCharts }) => {
   // NOTE: the number of the rendered charts by default is 3 and can be changed by the user
   // therefor the data will be passed separate from the view
   // NOTE: the views {carousel data} will be passed from the parent component
   // in addition to the current status (12.9) it will include default charts and extra
   // charts which will fit the amount of charts the user chose to render
 
+  const { data1, data2, data3 } = dataCharts;
+
+  // NOTE: this function will compose the brief summary of the charts - for demonstration purposes
+  // TODO: this function will be removed or refactor in the future
+  // TODO: think may be about more function and maybe add select input to choose form different options of summary
+  // avg / max / min / most common / least common / median / mode / etc...
+  const composeBriefSummary = () => {
+    const dataArr = [];
+    Object.values(dataCharts).forEach((item) => {
+      const maxCountArr = item.data.map((item) => item.count);
+      const maxCount = item.data.filter((item) => item.count === Math.max(...maxCountArr))[0];
+      dataArr.push({ label: item.label, count: maxCount.count, title: maxCount.title });
+    });
+    return (
+      <div>
+        <h1 className="text-slate-200">
+          There are <strong>{dataArr[0].count}</strong> cases of <strong>{dataArr[0].label}</strong>{' '}
+          for/at <strong>{dataArr[0].title}</strong>
+        </h1>
+        <h1 className="text-slate-200">
+          There are <strong>{dataArr[1].count}</strong> cases of <strong>{dataArr[1].label}</strong>{' '}
+          for/at <strong>{dataArr[1].title}</strong>
+        </h1>
+        <h1 className="text-slate-200">
+          There are <strong>{dataArr[2].count}</strong> cases of <strong>{dataArr[2].label}</strong>{' '}
+          for/at <strong>{dataArr[2].title}</strong>
+        </h1>
+      </div>
+    );
+  };
+
+  composeBriefSummary();
+
   return (
     // NOTE: charts using highcharts
-    <div className=" grid h-full w-full grid-cols-3 grid-rows-3">
-      <div className="col-span-3 row-span-2 flex ">
-        <PieChartHighCharts dataCharts={dataCharts.data1} className="w-1/3" />
-        <PieChartHighCharts dataCharts={dataCharts.data2} className="w-1/3" />
-        <PieChartHighCharts dataCharts={dataCharts.data3} className="w-1/3" />
-      </div>
-      <div className="col-span-3 row-span-1 mb-10 bg-amber-300">dasds</div>
+    <div className=" grid h-full w-full grid-cols-3  ">
+      <PieChartHighCharts dataCharts={data1} />
+      <PieChartHighCharts dataCharts={data2} />
+      <PieChartHighCharts dataCharts={data3} />
+      {/* FIXME: fix styling */}
+      <div className="colo col-span-3  m-1 bg-secondary-red-light p-3">{composeBriefSummary()}</div>
     </div>
-    // NOTE: charts using chartjs
-    // <div className="m-3 grid h-full w-full grid-cols-3 grid-rows-3 gap-2">
-    //   <div className="col-span-3 row-span-3 flex justify-items-center  p-3">
-    //     <DoughnutChart dataCharts={dataCharts.data1} />
-    //     <DoughnutChart dataCharts={dataCharts.data2} />
-    //     <DoughnutChart dataCharts={dataCharts.data3} />
-    //   </div>
-    //   <div className="col-span-3 row-span-1 bg-red-700"></div>
-    // </div>
   );
 };
 
