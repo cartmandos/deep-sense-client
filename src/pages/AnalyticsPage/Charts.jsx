@@ -20,22 +20,17 @@ const Charts = ({ dataCharts }) => {
       const maxCount = item.data.filter((item) => item.count === Math.max(...maxCountArr))[0];
       dataArr.push({ label: item.label, count: maxCount.count, title: maxCount.title });
     });
-    return (
-      <div>
-        <h1 className="text-slate-200">
-          There are <strong>{dataArr[0].count}</strong> cases of <strong>{dataArr[0].label}</strong>{' '}
-          for/at <strong>{dataArr[0].title}</strong>
-        </h1>
-        <h1 className="text-slate-200">
-          There are <strong>{dataArr[1].count}</strong> cases of <strong>{dataArr[1].label}</strong>{' '}
-          for/at <strong>{dataArr[1].title}</strong>
-        </h1>
-        <h1 className="text-slate-200">
-          There are <strong>{dataArr[2].count}</strong> cases of <strong>{dataArr[2].label}</strong>{' '}
-          for/at <strong>{dataArr[2].title}</strong>
+
+    const summaries = dataArr.map((item, i) => (
+      <div key={item}>
+        <h1 className="inline-block text-slate-200 underline underline-offset-2 hover:cursor-pointer hover:decoration-yellow-400 hover:decoration-2 hover:underline-offset-4">
+          There are <strong>{dataArr[i].count}</strong> cases of <strong>{dataArr[i].label}</strong>{' '}
+          for/at <strong>{dataArr[i].title}</strong>
         </h1>
       </div>
-    );
+    ));
+
+    return <div>{summaries}</div>;
   };
 
   composeBriefSummary();
