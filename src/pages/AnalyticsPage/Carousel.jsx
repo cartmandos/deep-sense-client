@@ -1,69 +1,37 @@
-import { BackgroundCardImg } from './BackgroundCardImg.style.';
-
-import heroImageXl from '@assets/images/hero-background_01-2560w.jpg';
-import heroImageLg from '@assets/images/hero-background_01-1440w.jpg';
-import heroImageMd from '@assets/images/hero-background_01-1024w.jpg';
-import heroImageSm from '@assets/images/hero-background_01-480w.jpg';
+// import { BackgroundCardImg } from './BackgroundCardImg.style.';
 
 // TODO: separate carousel creation function and creation data
 
-const Carousel = ({ setView }) => {
-  // TODO: change/add views
-  const CAROUSEL_DATA = [
-    { imgSrc: heroImageLg, imgAlt: 'img1', view: 'main' },
-    { imgSrc: heroImageMd, imgAlt: 'img2', view: 'countries' },
-    { imgSrc: heroImageSm, imgAlt: 'img3', view: 'injuries' },
-    { imgSrc: heroImageXl, imgAlt: 'img4', view: 'experience' },
-  ];
-
-  const leftClickHandler = (index) => {
-    index === 0
-      ? setView(CAROUSEL_DATA[CAROUSEL_DATA.length - 1].view)
-      : setView(CAROUSEL_DATA[index - 1].view);
-  };
-  const rightClickHandler = (index) => {
-    index + 1 === CAROUSEL_DATA.length
-      ? setView(CAROUSEL_DATA[0].view)
-      : setView(CAROUSEL_DATA[index + 1].view);
+const Carousel = ({ criteria, view, setView }) => {
+  const handleNext = () => {
+    const index = criteria.indexOf(view);
+    index + 1 === criteria.length ? setView(criteria[0]) : setView(criteria[index + 1]);
   };
 
-  const carouselItems = CAROUSEL_DATA.map((item, index) => {
-    return (
-      <div key={item.view} id={`slide${index + 1}`} className="carousel-item relative w-full ">
-        <BackgroundCardImg
-          imageUrl={item.imgSrc}
-          alt={item.imgAlt}
-          className="flex flex-col justify-end p-3"
-        >
-          <h1 className="text-lg uppercase text-slate-100">{item.view}</h1>
-          <p className="text-sm text-slate-200 ">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, repudiandae.
-          </p>
-        </BackgroundCardImg>
-        <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-          {/* REVIEW: decide between controlling with url params or state */}
-          <a
-            href={index === 0 ? `#slide${CAROUSEL_DATA.length}` : `#slide${index}`}
-            className="btn btn-circle"
-            onClick={() => leftClickHandler(index)}
-          >
-            ❮
-          </a>
-          <a
-            href={index + 1 === CAROUSEL_DATA.length ? `#slide${1}` : `#slide${index + 2}`}
-            className="btn btn-circle"
-            onClick={() => rightClickHandler(index)}
-          >
-            ❯
-          </a>
-        </div>
-      </div>
-    );
-  });
+  const handlePrev = () => {
+    const index = criteria.indexOf(view);
+    index === 0 ? setView(criteria[criteria.length - 1]) : setView(criteria[index - 1]);
+  };
 
   return (
-    <div className="flex justify-center">
-      <div className="carousel w-3/5">{carouselItems}</div>
+    <div className="carousel flex w-full justify-center">
+      <div className="carousel-item relative h-[25vh] w-full">
+        {/* <BackgroundCardImg imageUrl={item.imgSrc} alt={item.imgAlt} /> */}
+        <div className="hero-overlay absolute bottom-0 left-0 right-0 top-0 flex h-full w-full flex-col justify-between overflow-hidden bg-gray-800 bg-opacity-70 bg-fixed p-3 text-center">
+          <h2 className="text-3xl text-slate-100">{view}</h2>
+          <p className="text-sm text-slate-200">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, repudiandae.
+          </p>
+        </div>
+        <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+          <button className="btn btn-circle" onClick={() => handlePrev()}>
+            ❮
+          </button>
+          <button className="btn btn-circle" onClick={() => handleNext()}>
+            ❯
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

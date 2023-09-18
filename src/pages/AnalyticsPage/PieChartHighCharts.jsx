@@ -1,8 +1,9 @@
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 
-const PieChartHighCharts = ({ dataCharts }) => {
-  const { data, label } = dataCharts;
+const PieChartHighCharts = ({ filter }) => {
+  // console.log('filter:', filter);
+  const { data, label } = filter;
   const chartData = data.map((item) => {
     return { name: item.title, y: item.count };
   });
@@ -21,7 +22,7 @@ const PieChartHighCharts = ({ dataCharts }) => {
     chart: {
       type: 'pie',
     },
-// NOTE: add onClick function that will open a modal with the data of the clicked chart(not best choice in my opinion but an option)
+    // NOTE: add onClick function that will open a modal with the data of the clicked chart(not best choice in my opinion but an option)
     title: {
       text: label.charAt(0).toUpperCase().concat(label.slice(1).toString()),
       align: 'center',
