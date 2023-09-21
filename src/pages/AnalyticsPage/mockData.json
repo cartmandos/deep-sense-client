@@ -1,0 +1,86 @@
+{
+  "gender": [
+    { "title": "male", "count": 35 },
+    { "title": "female", "count": 15 }
+  ],
+  "age": [
+    { "title": "16-25", "count": 12 },
+    { "title": "26-35", "count": 10 },
+    { "title": "36-45", "count": 5 },
+    { "title": "46-55", "count": 2 },
+    { "title": "56-65", "count": 1 },
+    { "title": "66-75", "count": 0 }
+  ],
+  "discipline": [
+    { "title": "not a diver", "count": 12 },
+    { "title": "open circuit scuba without decompression", "count": 12 },
+    { "title": "open circuit scuba with decompression", "count": 9 },
+    { "title": "closed circuit without decompression", "count": 2 },
+    { "title": "closed circuit with decompression", "count": 1 },
+    { "title": "spearfishing/hunting", "count": 1 },
+    { "title": "overhead environment", "count": 8 },
+    { "title": "scientific diving", "count": 2 },
+    { "title": "public safety diving", "count": 1 },
+    { "title": "commercial diving", "count": 3 },
+    { "title": "free diving recreational", "count": 2 },
+    { "title": "free diving competitive", "count": 1 },
+    { "title": "free diving spearfishing", "count": 1 },
+    { "title": "other", "count": 1 }
+  ],
+  "certification": [
+    { "title": "no certification", "count": 12 },
+    { "title": "open water", "count": 10 },
+    { "title": "rescue diver", "count": 5 },
+    { "title": "dive master", "count": 2 },
+    { "title": "instructor", "count": 1 },
+    { "title": "technical diver", "count": 1 },
+    { "title": "commercial diver", "count": 3 },
+    { "title": "police diver", "count": 8 },
+    { "title": "research diver", "count": 2 }
+  ],
+  "frequency": [
+    { "title": "1-10", "count": 12 },
+    { "title": "11-25", "count": 10 },
+    { "title": "26-50", "count": 5 },
+    { "title": ">50", "count": 2 }
+  ],
+  "type": [
+    { "title": "scuba", "count": 12 },
+    { "title": "free diving / breath-hold / snorkeling", "count": 10 },
+    { "title": "technical diving", "count": 5 },
+    { "title": "military diving", "count": 2 },
+    { "title": "pre-dive", "count": 1 },
+    { "title": "operational", "count": 1 },
+    { "title": "equipment", "count": 1 },
+    { "title": "health-related", "count": 1 },
+    { "title": "rebreather", "count": 1 },
+    { "title": "commercial diving", "count": 2 },
+    { "title": "civil diving", "count": 0 },
+    { "title": "non-diving", "count": 1 },
+    { "title": "boating", "count": 1 },
+    { "title": "recompression chamber", "count": 0 },
+    { "title": "medical treatment", "count": 1 },
+    { "title": "other", "count": 1 }
+  ],
+  "severity": [
+    { "title": "fatal", "count": 12 },
+    { "title": "serious", "count": 10 },
+    { "title": "minor", "count": 5 }
+  ],
+  "cause": [
+    { "title": "human error", "count": 12 },
+    { "title": "equipment failure", "count": 10 },
+    { "title": "environmental", "count": 5 },
+    { "title": "unknown", "count": 2 }
+  ],
+  "years": [
+    { "title": "0-1", "count": 12 },
+    { "title": "1-5", "count": 10 },
+    { "title": "5-10", "count": 5 },
+    { "title": "10+", "count": 2 }
+  ],
+  "country": [
+    { "title": "Israel", "count": 3 },
+    { "title": "Egypt", "count": 5 }
+  ]
+}

@@ -1,12 +1,13 @@
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 
-const PieChartHighCharts = ({ filter }) => {
-  // console.log('filter:', filter);
-  const { data, label } = filter;
-  const chartData = data.map((item) => {
-    return { name: item.title, y: item.count };
-  });
+const PieChartHighCharts = ({ label, data }) => {
+  const chartData = data
+    ? data.map((item) => {
+        return { name: item.title, y: item.count };
+      })
+    : [];
+
   const options = {
     legend: {
       layout: 'vertical',
@@ -45,7 +46,11 @@ const PieChartHighCharts = ({ filter }) => {
     ],
   };
 
-  return <HighchartsReact highcharts={Highcharts} options={options} />;
+  return (
+    <div className="h-full w-full">
+      {data && <HighchartsReact highcharts={Highcharts} options={options} />}
+    </div>
+  );
 };
 
 export default PieChartHighCharts;

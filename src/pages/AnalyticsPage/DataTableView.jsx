@@ -1,31 +1,46 @@
-const DataTableView = ({ filters }) => {
-  // NOTE: this function will compose the brief summary of the charts - for demonstration purposes
-  // TODO: this function will be removed or refactor in the future
-  // TODO: think may be about more function and maybe add select input to choose form different options of summary
-  // avg / max / min / most common / least common / median / mode / etc...
-  const ComposeBriefSummary = () => {
-    const dataArr = [];
-    Object.values(filters).forEach((item) => {
-      const maxCountArr = item.data.map((item) => item.count);
-      const maxCount = item.data.filter((item) => item.count === Math.max(...maxCountArr))[0];
-      dataArr.push({ label: item.label, count: maxCount.count, title: maxCount.title });
-    });
-
-    const summaries = dataArr.map((item, i) => (
-      <div key={i}>
-        <h1 className="inline-block text-slate-200 underline underline-offset-2 hover:cursor-pointer hover:decoration-yellow-400 hover:decoration-2 hover:underline-offset-4">
-          There are <strong>{dataArr[i].count}</strong> cases of <strong>{dataArr[i].label}</strong>{' '}
-          for/at <strong>{dataArr[i].title}</strong>
-        </h1>
-      </div>
-    ));
-
-    return <div>{summaries}</div>;
-  };
+/**
+ * brief data overview in table format
+ */
+const DataTableView = ({ filters, data }) => {
+  //1. show/sort/add: avg / max / min / most common / least common / median / mode
+  //2. add a button to show more data (modal)
+  //3. connect clicks to the charts?
+  //4. add a color indicator matching the charts
 
   return (
-    <div className="colo col-span-3  m-1 bg-gray-800 bg-opacity-70 p-3">
-      <ComposeBriefSummary />
+    <div className="grid grid-cols-3 gap-4 bg-gray-800 bg-opacity-70">
+      {filters.map((filter) => (
+        <div key={filter}>
+          <FilterTable data={data[filter]} />
+        </div>
+      ))}
+    </div>
+  );
+};
+
+const FilterTable = ({ data }) => {
+  return (
+    <div className="col-span-3 h-full w-full p-3">
+      <table className="w-full table-auto">
+        <thead>
+          <tr className="text-left">
+            <th className="px-1 py-1 text-slate-100">Title</th>
+            <th className="px-1 py-1 text-slate-100">Count</th>
+          </tr>
+        </thead>
+        <tbody>
+          {/* avoid re-rendering the table (useMemo) */}
+          {data &&
+            data
+              .sort((a, b) => b.count - a.count)
+              .map((filter, i) => (
+                <tr key={i}>
+                  <td className="border px-1 py-1 text-slate-100">{filter.title}</td>
+                  <td className="border px-1 py-1 text-slate-100">{filter.count}</td>
+                </tr>
+              ))}
+        </tbody>
+      </table>
     </div>
   );
 };
