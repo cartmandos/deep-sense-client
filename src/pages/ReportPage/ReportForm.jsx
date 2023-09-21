@@ -1,8 +1,7 @@
 import { lazy, Suspense, useState, useRef, useEffect } from 'react';
-
-import { BackgroundAnimation, FormButton, ProgressBar } from './layouts';
-
 import { useForm } from './hooks/useForm';
+import { BackgroundAnimation } from './layouts';
+import FormController from './FormController';
 
 import GeneralInstructions from './forms/GeneralInstructions';
 const DiverGeneralInfo = lazy(() => import('./forms/DiverGeneralInfo'));
@@ -18,16 +17,20 @@ export const ReportForm = () => {
    * @property {JSX.Element} page
    * @readonly
    */
-  const FORM_PAGES = {
-    'Diver General Info': DiverGeneralInfo,
-    'Incident Details': IncidentGeneralInfo,
-    'More Details': IncidentInfo,
-    'Appendix Info': AppendixInfo,
-  };
 
-  // const [showAnimation, setShowAnimation] = useState(false);
+  const FORM_PAGES = [
+    // NOTE: dont think realy need the headline
+    { title: 'general instructions', component: <GeneralInstructions /> },
+    { title: 'Diver General Info', component: <DiverGeneralInfo /> },
+    { title: 'Incident Details', component: <IncidentGeneralInfo /> },
+    { title: 'More Details', component: <IncidentInfo /> },
+    { title: 'Appendix Info', component: <AppendixInfo /> },
+  ];
+
   const [step, setStep] = useState(0);
+  // NOTE: i think can be deleted and use the FORM_PAGE only
   const [formPages, setFormPages] = useState(FORM_PAGES);
+
   const formPageRefs = useRef([]);
 
   const { formData } = useForm();
@@ -43,28 +46,32 @@ export const ReportForm = () => {
     setStep((prevStep) => prevStep + 1);
   };
 
-  // const handlePrevious = () => {
-  //   setStep((prevStep) => prevStep - 1);
-  // };
+  const handlePrevious = () => {
+    setStep((prevStep) => prevStep - 1);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
   };
 
-  const ContinueButton = () => {
-    return <FormButton label="Continue" onClick={handleNext} />;
-  };
-
   return (
-    <div className="flex h-full">
+    <div className="flex h-full justify-center">
       <form
-        className="mx-4 h-full w-2/3 rounded bg-main-gray-light shadow-xl"
+        className="mx-4 flex h-[80vh] w-3/4 rounded bg-main-gray-dark shadow-xl"
         onSubmit={handleSubmit}
       >
-        <div className="mx-auto my-2 h-full p-2">
-          <GeneralInstructions />
+        <FormController
+          formPages={formPages}
+          step={step}
+          handleNext={handleNext}
+          handlePrevious={handlePrevious}
+        />
+        {/* <div className="divider divider-horizontal"></div> */}
+        <div className="m-2 w-4/5 bg-main-gray-light py-2">
           <Suspense fallback={<div>Loading...</div>}>
-            {step > 0 &&
+            <div className="mx-3 h-full  py-2">{formPages[step].component}</div>
+            {/* <SwitchTransition></SwitchTransition> */}
+            {/* {step > 0 &&
               Object.entries(formPages).map(([label, FormPage], index) => (
                 <div
                   key={label}
@@ -75,23 +82,11 @@ export const ReportForm = () => {
                 >
                   <FormPage />
                 </div>
-              ))}
+              ))} */}
           </Suspense>
-
-          <div role="group form-control" className="mb-3 flex justify-center">
-            {/* {step > 0 && <FormButton label="Previous" onClick={handlePrevious} />} */}
-
-            {step < Object.keys(formPages).length - 1 && <ContinueButton />}
-            {step === Object.keys(formPages).length - 1 && (
-              <FormButton label="Submit" type="submit" />
-            )}
-          </div>
         </div>
       </form>
 
-      <div className="relative me-6 ms-auto pe-4 ps-8">
-        <ProgressBar labels={Object.keys(formPages)} step={step} />
-      </div>
       <BackgroundAnimation />
     </div>
   );

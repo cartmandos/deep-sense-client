@@ -1,6 +1,7 @@
 const GeneralInstructions = () => {
   return (
-    <>
+    <div className=" h-full w-full p-5">
+      <h2 className="mb-8 text-4xl capitalize">general instructions</h2>
       <h4 className="mb-1 mt-2 font-semibold">PRIVACY</h4>
       <p className="mb-4 font-extralight">
         We will not share your information with anyone. We cares about your privacy and no
@@ -26,7 +27,7 @@ const GeneralInstructions = () => {
         until you click “Done” on the final page. At that time, you will no longer be able to return
         to the case.
       </p>
-    </>
+    </div>
   );
 };
 

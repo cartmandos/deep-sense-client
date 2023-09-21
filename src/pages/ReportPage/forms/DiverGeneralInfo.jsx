@@ -5,68 +5,28 @@ const GeneralInfo = () => {
   const { formData, handleChange } = useForm();
 
   return (
-    <div>
+    <div className="m-5">
       {/* units */}
       <span className="label-text uppercase">Identify Units</span>
       <div className="form-control flex-row">
-        <label className="label cursor-pointer">
-          <input
-            type="radio"
-            name="units"
-            value="metric"
-            onChange={handleChange}
-            className="radio-error radio me-2 border-main-red-dark"
-            checked={formData.units === 'metric' && true}
-          />
-          <span className="label-text">Metric</span>
-        </label>
-        <label className="label cursor-pointer">
-          <input
-            type="radio"
-            name="units"
-            value="imperial"
-            onChange={handleChange}
-            className="radio-error radio me-2 border-main-red-dark"
-            checked={formData.units === 'imperial' && true}
-          />
-          <span className="label-text">Imperial</span>
-        </label>
+        <select
+          name="units"
+          className="select select-ghost select-lg w-full max-w-xs capitalize hover:select-bordered"
+        >
+          <option value="metric">metric</option>
+          <option value="metric">imperial</option>
+        </select>
       </div>
       {/* sex */}
       <span className="label-text uppercase">Gender</span>
       <div className="form-control flex-row">
-        <label className="label cursor-pointer">
-          <input
-            type="radio"
-            name="gender"
-            value="male"
-            onChange={handleChange}
-            className="radio-error radio me-2 border-main-red-dark"
-            checked={formData.gender === 'male' && true}
-          />
-          <span className="label-text">Male</span>
-        </label>
-        <label className="label cursor-pointer">
-          <input
-            type="radio"
-            name="gender"
-            value="female"
-            onChange={handleChange}
-            className="radio-error radio me-2 border-main-red-dark"
-            checked={formData.gender === 'female' && true}
-          />
-          <span className="label-text">Female</span>
-        </label>
-        <label className="label cursor-pointer">
-          <input
-            type="radio"
-            name="gender"
-            value="other"
-            onChange={handleChange}
-            className="radio-error radio me-2 border-main-red-dark"
-          />
-          <span className="label-text">Other</span>
-        </label>
+        <select
+          name="gender"
+          className="select select-ghost select-lg w-full max-w-xs capitalize hover:select-bordered "
+        >
+          <option value="male">male</option>
+          <option value="female">female</option>
+        </select>
       </div>
 
       {/* height */}
@@ -104,80 +64,64 @@ const GeneralInfo = () => {
         </div>
       </div>
       {/* dive discipline */}
-      <div className="mb-5">
+      <div className="form-control mb-5">
         <h4 className="label-text uppercase">Diving discipline</h4>
         <span className="label-text">What kind of diving does the victim practice?</span>
-        {DISCIPLINE.map((discipline) => {
-          return (
-            <div key={discipline}>
-              <div className="flex">
-                <label className="label cursor-pointer">
-                  <input
-                    name="discipline"
-                    value={discipline}
-                    type="radio"
-                    className="radio-error radio border-main-red-dark"
-                    onChange={handleChange}
-                    checked={formData.discipline === discipline ? true : false}
-                  />
-                  <span className="label-text ms-2">{discipline}</span>
-                </label>
-              </div>
-            </div>
-          );
-        })}
+        <select
+          name="discipline"
+          className="select select-ghost select-lg w-full max-w-xs capitalize hover:select-bordered "
+        >
+          {DISCIPLINE.map((discipline) => {
+            return (
+              <option key={discipline} value={discipline}>
+                {discipline}
+              </option>
+              //         onChange={handleChange}
+              //         checked={formData.discipline === discipline ? true : false}
+            );
+          })}
+        </select>
       </div>
       {/* dive certification */}
-      <div className="mb-5">
+      <div className="form-control mb-5">
         <h4 className="label-text uppercase">Dive Certification</h4>
         <span className="label-text">
           What is the victim`s highest recreational dive certification level?
         </span>
-
-        {CERTIFICATION.map((certification) => {
-          return (
-            <div key={certification}>
-              <div className="flex">
-                <label className="label cursor-pointer">
-                  <input
-                    name="certification"
-                    value={certification}
-                    type="radio"
-                    className="radio-error radio border-main-red-dark"
-                    onChange={handleChange}
-                    checked={formData.certification === certification ? true : false}
-                  />
-                  <span className="label-text ms-2">{certification}</span>
-                </label>
-              </div>
-            </div>
-          );
-        })}
+        <select
+          name="certification"
+          className="select select-ghost select-lg w-full max-w-xs capitalize hover:select-bordered "
+        >
+          {CERTIFICATION.map((certification) => {
+            return (
+              <option key={certification} value={certification}>
+                {certification}
+              </option>
+              //         onChange={handleChange}
+              //         checked={formData.discipline === discipline ? true : false}
+            );
+          })}
+        </select>
       </div>
 
       {/* dive frequncy */}
-      <div className="mb-5">
+      <div className="form-control mb-5 ">
         <h4 className="label-text uppercase"> Diving Frequency</h4>
         <span className="label-text">How frequently did the victim dive in the last 3 years?</span>
-        {DIVE_FREQUENCY.map((frequency) => {
-          return (
-            <div key={frequency}>
-              <div className="flex">
-                <label className="label cursor-pointer">
-                  <input
-                    name="frequency"
-                    value={frequency}
-                    type="radio"
-                    className="radio-error radio border-main-red-dark"
-                    onChange={handleChange}
-                    checked={formData.frequency === frequency ? true : false}
-                  />
-                  <span className="label-text ms-2">{frequency}</span>
-                </label>
-              </div>
-            </div>
-          );
-        })}
+        <select
+          name="frequency"
+          className="select select-ghost select-lg w-full max-w-xs capitalize hover:select-bordered "
+        >
+          {DIVE_FREQUENCY.map((frequency) => {
+            return (
+              <option key={frequency} value={frequency}>
+                {frequency}
+              </option>
+              //         onChange={handleChange}
+              //         checked={formData.discipline === discipline ? true : false}
+            );
+          })}
+        </select>
       </div>
     </div>
   );

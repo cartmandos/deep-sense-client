@@ -35,31 +35,26 @@ const IncidentGeneralInfo = () => {
         className="input input-bordered input-secondary mb-4 w-full max-w-xs"
         onChange={handleChange}
       />
-      {/* type - radio */}
 
       <div className="form-control mb-3">
         <h4 className="label-text uppercase">Incident Type</h4>
         <span className="label-text">What type of incident would you like to report?</span>
-        {INCIDENT_TYPE.map((type) => {
-          return (
-            <div key={type}>
-              <div className="flex">
-                <label className="label cursor-pointer">
-                  <input
-                    type="radio"
-                    name="type"
-                    value={type}
-                    className="radio-error radio border-main-red-dark"
-                    onChange={handleChange}
-                    checked={formData.type === type ? true : false}
-                  />
-                  <span className="label-text ms-2">{type}</span>
-                </label>
-              </div>
-            </div>
-          );
-        })}
+        <select
+          name="type"
+          className="select select-ghost select-lg w-full max-w-xs capitalize hover:select-bordered "
+        >
+          {INCIDENT_TYPE.map((type) => {
+            return (
+              <option key={type} value={type}>
+                {type}
+              </option>
+              //         onChange={handleChange}
+              //         checked={formData.discipline === discipline ? true : false}
+            );
+          })}
+        </select>
       </div>
+
       {/* involvment */}
       <span className="label-text uppercase">Incident Inolvment</span>
       <div className="flex">

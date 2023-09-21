@@ -4,7 +4,7 @@
  */
 export const ProgressBar = ({ labels, step }) => {
   return (
-    <ul className="steps steps-vertical sticky top-1/3">
+    <ul className="steps steps-vertical sticky ">
       {labels.map((label, index) => (
         <li
           className={`step ${
@@ -13,7 +13,7 @@ export const ProgressBar = ({ labels, step }) => {
           key={label}
           data-content={`${index < step ? '✓' : index + 1}`}
         >
-          {label}
+          {/* {label} */}
         </li>
       ))}
     </ul>
