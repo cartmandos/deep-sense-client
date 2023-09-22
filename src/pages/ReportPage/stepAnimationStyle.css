@@ -1,0 +1,26 @@
+.remove-btn {
+  margin-right: 0.5rem;
+}
+
+.item-enter {
+  opacity: 0;
+}
+.item-enter-active {
+  opacity: 1;
+
+  transform: translateY(0px);
+  transition-duration: 3s;
+  transition-timing-function: linear;
+  transition: opacity 500ms fade-outs;
+  /* transition: opacity 500ms fade-in; */
+}
+.item-exit {
+  opacity: 1;
+}
+.item-exit-active {
+  opacity: 0;
+  transform: translateY(300px);
+  transition-duration: 1s;
+  transition-timing-function: linear;
+  transition: opacity 500ms fade-outs;
+}
