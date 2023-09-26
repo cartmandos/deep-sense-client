@@ -31,48 +31,10 @@ export const ReportForm = () => {
     { title: 'Appendix Info', component: <AppendixInfo /> },
   ];
 
-  const ANIMATION_BOXES = [
-    {
-      title: 'box1',
-      component: (
-        <div className="m-auto h-[300px] w-[600px] bg-green-400 text-3xl uppercase">box 1</div>
-      ),
-    },
-    {
-      title: 'box2',
-      component: (
-        <div className="m-auto h-[300px] w-[600px] bg-yellow-300 text-3xl uppercase">box 2</div>
-      ),
-    },
-    {
-      title: 'box3',
-      component: (
-        <div className="m-auto h-[300px] w-[600px] bg-red-500 text-3xl uppercase">box 3</div>
-      ),
-    },
-    {
-      title: 'box4',
-      component: (
-        <div className="m-auto h-[300px] w-[600px] bg-purple-400 text-3xl uppercase">box 4</div>
-      ),
-    },
-    {
-      title: 'box5',
-      component: (
-        <div className="m-auto h-[300px] w-[600px] bg-blue-400 text-3xl uppercase">box 5</div>
-      ),
-    },
-  ];
-
   const [step, setStep] = useState(0);
   const [formPages, setFormPages] = useState(FORM_PAGES);
 
-  // test
-  const [testPage, setTestPage] = useState(ANIMATION_BOXES);
-
   const [currentStep, setCurrentStep] = useState([formPages[0]]);
-  // test
-  const [currentStepTest, setCurrentStepTest] = useState([testPage[0]]);
 
   // NOTE: i think can be deleted and use the FORM_PAGE only
 
@@ -91,16 +53,8 @@ export const ReportForm = () => {
     setCurrentStep([formPages[step]]);
   }, [step]);
 
-  useEffect(() => {
-    setCurrentStepTest([testPage[step]]);
-  }, [step]);
-
   const handleNext = () => {
     setCurrentStep([]);
-    setStep((prevStep) => prevStep + 1);
-  };
-  const handleNextTest = () => {
-    setCurrentStepTest([]);
     setStep((prevStep) => prevStep + 1);
   };
 
@@ -109,17 +63,12 @@ export const ReportForm = () => {
     setStep((prevStep) => prevStep - 1);
   };
 
-  const handlePreviousTest = () => {
-    setCurrentStepTest([]);
-    setStep((prevStep) => prevStep - 1);
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
   };
 
   return (
-    <div className="flex h-full justify-center">
+    <div className="flex h-full justify-center overflow-hidden">
       <form
         className="mx-4 flex h-[80vh] w-3/4 rounded bg-main-gray-dark shadow-xl"
         onSubmit={handleSubmit}
@@ -127,31 +76,19 @@ export const ReportForm = () => {
         <FormController
           formPages={formPages}
           step={step}
-          // handleNext={handleNext}
-          // handlePrevious={handlePrevious}
-          // test
-          handleNext={handleNextTest}
-          handlePrevious={handlePreviousTest}
+          handleNext={handleNext}
+          handlePrevious={handlePrevious}
         />
 
         <div className="m-2 w-4/5 bg-main-gray-light py-2">
           <Suspense fallback={<div>Loading...</div>}>
-            {/* test */}
             <TransitionGroup>
-              {currentStepTest.map((page) => (
-                <CSSTransition key={page.title} classNames="item" timeout={900}>
-                  {testPage[step].component}
-                </CSSTransition>
-              ))}
-            </TransitionGroup>
-
-            {/* <TransitionGroup>
               {currentStep.map((page) => (
                 <CSSTransition key={page.title} classNames="item" timeout={900}>
                   {formPages[step].component}
                 </CSSTransition>
               ))}
-            </TransitionGroup> */}
+            </TransitionGroup>
 
             {/* <div className="mx-3 h-full  py-2">{formPages[step].component}</div> */}
 
